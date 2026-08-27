@@ -50,7 +50,7 @@ export default function AboutPage() {
 
           <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
             <img
-              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1200&q=80"
+              src="/images/gardens-1.jpeg"
               alt="Le Voyage Resort Kitale Grounds"
               className="w-full h-[420px] object-cover"
             />
