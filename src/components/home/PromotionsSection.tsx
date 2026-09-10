@@ -86,7 +86,7 @@ export default function PromotionsSection() {
                     Book Package
                   </button>
                   <a
-                    href={getWhatsAppLink(`Hello Le Voyage Resort, I want to enquire about the "${promo.title}".`)}
+                    href={getWhatsAppLink(`Hello LE-VOYAGE Resort, I want to enquire about the "${promo.title}".`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-emerald-600 hover:bg-emerald-500 text-white px-3 py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center transition"

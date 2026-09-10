@@ -1,4 +1,5 @@
-import { Utensils, Coffee, Wine, Clock, MessageCircle } from 'lucide-react';
+import Link from 'next/link';
+import { Utensils, Coffee, Wine, Clock, MessageCircle, ArrowRight } from 'lucide-react';
 import { getWhatsAppLink } from '@/config/resortInfo';
 
 export default function DiningPage() {
@@ -6,7 +7,7 @@ export default function DiningPage() {
     {
       category: 'Breakfast Specialties (06:00 AM – 10:30 AM)',
       items: [
-        { name: 'Le Voyage Highland Breakfast', desc: 'Two fresh eggs cooked to order, grilled beef sausages, bacon, fried mushrooms, roast tomato & toasted brioche.', price: 'KES 1,200' },
+        { name: 'LE-VOYAGE Highland Breakfast', desc: 'Two fresh eggs cooked to order, grilled beef sausages, bacon, fried mushrooms, roast tomato & toasted brioche.', price: 'KES 1,200' },
         { name: 'Swahili Mahamri & Swahili Tea', desc: 'Freshly baked cardamon mahamri served with spiced coconut bean stew and authentic brewed Kenyan Swahili tea.', price: 'KES 850' },
         { name: 'Fresh Tropical Fruit Platter & Yogurt', desc: 'Sliced pawpaw, sweet pineapple, passion fruit, watermelon, topped with wild honey and roasted granola.', price: 'KES 750' },
       ],
@@ -23,7 +24,7 @@ export default function DiningPage() {
     {
       category: 'Cocktails & Signature Beverages',
       items: [
-        { name: 'Le Voyage Sunset Breeze', desc: 'Signature resort cocktail with gold rum, fresh passion fruit juice, lime, and a splash of grenadine.', price: 'KES 850' },
+        { name: 'LE-VOYAGE Sunset Breeze', desc: 'Signature resort cocktail with gold rum, fresh passion fruit juice, lime, and a splash of grenadine.', price: 'KES 850' },
         { name: 'Kitale Highlands Dawa', desc: 'Classic Kenyan cocktail with vodka, freshly squeezed lime, crushed ginger, and natural organic honey.', price: 'KES 750' },
         { name: 'Fresh Hibiscus & Mint Mocktail', desc: 'Chilled house-brewed zesty hibiscus tea infused with crushed mint and fresh lemon juice.', price: 'KES 450' },
       ],
@@ -48,13 +49,43 @@ export default function DiningPage() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        {/* Menu Navigation CTA Buttons */}
+        <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-card text-center space-y-4">
+          <span className="text-xs font-bold uppercase tracking-widest text-resort-600 block">
+            Interactive Online Menus & Ordering
+          </span>
+          <h2 className="text-xl sm:text-2xl font-serif font-bold text-slate-900">
+            Explore Dishes & Premium Beverages
+          </h2>
+          <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto leading-relaxed">
+            Browse our full food and bar collections with updated prices, customize quantities, and place orders directly via WhatsApp or Email.
+          </p>
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link
+              href="/dining-menu"
+              className="w-full sm:w-auto bg-resort-600 hover:bg-resort-700 text-white text-xs sm:text-sm font-semibold px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 border border-resort-500 active:scale-95"
+            >
+              <Utensils className="w-4 h-4" />
+              <span>Explore Dining Menu</span>
+            </Link>
+
+            <Link
+              href="/bar-menu"
+              className="w-full sm:w-auto bg-resort-950 hover:bg-resort-900 text-white text-xs sm:text-sm font-semibold px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 border border-resort-800 active:scale-95"
+            >
+              <Wine className="w-4 h-4 text-resort-400" />
+              <span>Explore Bar Menu</span>
+            </Link>
+          </div>
+        </div>
+
         {/* Atmosphere Visual Showcase */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="rounded-2xl overflow-hidden shadow-card border border-slate-200 group bg-white">
             <div className="h-52 overflow-hidden">
               <img
                 src="/images/Dinning.jpeg"
-                alt="Le Voyage Resort main restaurant dining hall"
+                alt="LE-VOYAGE main restaurant dining hall"
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />
             </div>
@@ -68,7 +99,7 @@ export default function DiningPage() {
             <div className="h-52 overflow-hidden">
               <img
                 src="/images/Bar & Lounge.jpeg"
-                alt="Le Voyage Resort veranda cocktail bar and outdoor lounge"
+                alt="LE-VOYAGE veranda cocktail bar and outdoor lounge"
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />
             </div>
@@ -82,7 +113,7 @@ export default function DiningPage() {
             <div className="h-52 overflow-hidden">
               <img
                 src="/images/Bar & Lounge (2).jpeg"
-                alt="Le Voyage Resort indoor cocktail bar and lounge"
+                alt="LE-VOYAGE indoor cocktail bar and lounge"
                 className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
               />
             </div>
@@ -117,7 +148,7 @@ export default function DiningPage() {
             Planning a private birthday dinner, family gathering, or outdoor barbecue event in our gardens? Contact our food & beverage team.
           </p>
           <a
-            href={getWhatsAppLink('Hello Le Voyage Resort, I would like to enquire about table reservations and private catering.')}
+            href={getWhatsAppLink('Hello LE-VOYAGE Resort, I would like to enquire about table reservations and private catering.')}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-lg text-xs font-semibold shadow transition"

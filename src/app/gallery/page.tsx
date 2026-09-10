@@ -12,7 +12,7 @@ export default function GalleryPage() {
             Resort Photo Gallery
           </h1>
           <p className="text-slate-300 text-sm max-w-2xl mx-auto">
-            Take a visual tour of Le Voyage Resort Kitale. Browse our luxury suites, fine dining spaces, conference halls, gardens, and swimming pool.
+            Take a visual tour of LE-VOYAGE Kitale. Browse our luxury suites, fine dining spaces, conference halls, gardens, and swimming pool.
           </p>
         </div>
       </div>

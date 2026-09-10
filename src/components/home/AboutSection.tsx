@@ -13,7 +13,7 @@ export default function AboutSection() {
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <img
                 src="/images/Resort (2).jpeg"
-                alt="Le Voyage Resort entrance and serene grounds in Kitale"
+                alt="LE-VOYAGE Resort entrance and serene grounds in Kitale"
                 className="w-full h-[400px] object-cover hover:scale-105 transition duration-700"
               />
             </div>
@@ -42,12 +42,12 @@ export default function AboutSection() {
             </h2>
 
             <p className="text-slate-600 text-base leading-relaxed">
-              Nested in the serene landscapes of Kitale, <span className="font-semibold text-slate-800">Le Voyage Resort</span> is designed to provide guests with an unmatched blend of luxury, comfort, and peaceful retreat. Whether traveling for executive business, hosting a corporate seminar, or enjoying a family getaway, our resort delivers tailor-made experiences.
+              Nested in the serene landscapes of Kitale, <span className="font-semibold text-slate-800">LE-VOYAGE Resort</span> is designed to provide guests with an unmatched blend of luxury, comfort, and peaceful retreat. Whether traveling for executive business, hosting a corporate seminar, or enjoying a family getaway, our resort delivers tailor-made experiences.
             </p>
 
             <div className="p-4 bg-white rounded-xl border border-slate-200 shadow-sm">
-              <span className="text-xs font-bold uppercase tracking-widest text-resort-600 block mb-1">Our Brand Philosophy</span>
-              <span className="text-lg font-serif font-bold text-slate-800">{RESORT_INFO.coreValues}</span>
+              <span className="text-xs font-bold uppercase tracking-widest text-resort-600 block mb-1">Our Slogan</span>
+              <span className="text-lg font-serif font-bold text-slate-800">{RESORT_INFO.slogan}</span>
             </div>
 
             {/* Key feature pillars */}

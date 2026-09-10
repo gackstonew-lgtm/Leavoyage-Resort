@@ -13,8 +13,8 @@ export default function Hero() {
   const heroSlides = [
     {
       image: '/images/Resort (2).jpeg',
-      title: 'Welcome to Le Voyage Resort',
-      subtitle: 'Experience comfort, hospitality and serenity in the heart of Kitale.',
+      title: 'Welcome to LE-VOYAGE Resort',
+      subtitle: 'Home Away From Home — Experience comfort, hospitality and serenity in the heart of Kitale.',
     },
     {
       image: '/images/Rooms.jpeg',
@@ -43,22 +43,34 @@ export default function Hero() {
   return (
     <section className="relative min-h-[90vh] lg:min-h-screen flex flex-col justify-between pt-28 pb-12 bg-resort-950 overflow-hidden">
       
-      {/* Background Image Carousel Slider */}
-      {heroSlides.map((slide, idx) => (
-        <div
-          key={idx}
-          className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-            idx === currentSlide ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
-          }`}
-          style={{ transition: 'opacity 1.2s ease-in-out, transform 8s ease-out' }}
-        >
-          <img
-            src={slide.image}
-            alt={slide.title}
-            className="w-full h-full object-cover"
-          />
-        </div>
-      ))}
+      {/* Mobile Background: Optimized & scaled hero image with light blur for high-contrast text visibility */}
+      <div className="md:hidden absolute inset-0 overflow-hidden">
+        <img
+          src="/images/mobile-view-hero.jpg"
+          alt="LE-VOYAGE Resort Kitale Main Building"
+          className="w-full h-full object-cover object-center scale-105 filter blur-[2.5px] brightness-[0.75] transition-all duration-700"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-resort-950/70 via-resort-950/50 to-resort-950/90" />
+      </div>
+
+      {/* Desktop/Tablet Background: Multi-slide carousel slideshow */}
+      <div className="hidden md:block absolute inset-0">
+        {heroSlides.map((slide, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+              idx === currentSlide ? 'opacity-100 scale-105' : 'opacity-0 scale-100'
+            }`}
+            style={{ transition: 'opacity 1.2s ease-in-out, transform 8s ease-out' }}
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
+      </div>
 
       {/* Dark Gradient Overlay for Readability */}
       <div className="absolute inset-0 bg-overlay" />
@@ -72,11 +84,13 @@ export default function Hero() {
         </div>
 
         <h1 className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-white tracking-wide max-w-4xl leading-tight mb-4 drop-shadow-md">
-          {heroSlides[currentSlide].title}
+          <span className="md:hidden">Welcome to LE-VOYAGE Resort</span>
+          <span className="hidden md:inline">{heroSlides[currentSlide].title}</span>
         </h1>
 
         <p className="text-base sm:text-xl text-slate-200 font-light max-w-2xl leading-relaxed mb-8 drop-shadow">
-          {heroSlides[currentSlide].subtitle}
+          <span className="md:hidden">Home Away From Home — Experience comfort, hospitality and serenity in Kitale.</span>
+          <span className="hidden md:inline">{heroSlides[currentSlide].subtitle}</span>
         </p>
 
         {/* Dual Call to Action Buttons */}
@@ -97,8 +111,8 @@ export default function Hero() {
           </Link>
         </div>
 
-        {/* Slide Indicators */}
-        <div className="flex items-center space-x-2">
+        {/* Slide Indicators (Desktop Only) */}
+        <div className="hidden md:flex items-center space-x-2">
           {heroSlides.map((_, idx) => (
             <button
               key={idx}

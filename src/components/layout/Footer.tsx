@@ -15,20 +15,20 @@ export default function Footer() {
             <Link href="/" className="flex items-center gap-3">
               <img
                 src="/images/logo.jpeg"
-                alt="Le Voyage Resort Official Logo"
+                alt="LE-VOYAGE Resort Official Logo"
                 className="w-10 h-10 rounded-full object-contain bg-white shadow-md border border-resort-400/30 p-0.5"
               />
               <div>
                 <span className="text-xl font-serif font-bold text-white tracking-wide block leading-none">
-                  LE VOYAGE
+                  LE-VOYAGE Resort
                 </span>
-                <span className="text-[10px] tracking-[0.25em] text-resort-300 font-medium uppercase block mt-0.5">
-                  Resort Kitale
+                <span className="text-[10px] tracking-[0.2em] text-resort-300 font-medium uppercase block mt-0.5">
+                  Home Away From Home
                 </span>
               </div>
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed">
-              Experience comfort, hospitality and serenity in the heart of Kitale. Premier destination for accommodation, fine dining, conferences, and memorable outdoor events.
+              Home Away From Home. Premier destination for luxury accommodation, fine dining, corporate conferences, and memorable outdoor events in Kitale.
             </p>
             <div className="pt-2">
               <span className="inline-block bg-resort-900 border border-resort-700/60 text-resort-300 px-3 py-1 rounded-full text-xs font-medium">
@@ -46,11 +46,13 @@ export default function Footer() {
               {[
                 { name: 'Luxury Rooms & Suites', href: '/accommodation' },
                 { name: 'Conferences & Seminars', href: '/conferences' },
-                { name: 'Restaurant & Bar', href: '/dining' },
+                { name: 'Restaurant & Bar Overview', href: '/dining' },
+                { name: 'Online Dining Menu', href: '/dining-menu' },
+                { name: 'Online Bar Menu', href: '/bar-menu' },
                 { name: 'Swimming Pool & Lawn', href: '/facilities' },
                 { name: 'Packages & Offers', href: '/packages' },
                 { name: 'Resort Photo Gallery', href: '/gallery' },
-                { name: 'About Le Voyage', href: '/about' },
+                { name: 'About LE-VOYAGE Resort', href: '/about' },
               ].map((link) => (
                 <li key={link.name}>
                   <Link href={link.href} className="hover:text-white hover:translate-x-1 transition inline-flex items-center gap-1.5 text-slate-400">
@@ -85,7 +87,10 @@ export default function Footer() {
             <div className="space-y-3 text-sm text-slate-300">
               <div className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 text-resort-400 shrink-0 mt-0.5" />
-                <span>{RESORT_INFO.contact.address}</span>
+                <div>
+                  <span className="block leading-relaxed">{RESORT_INFO.contact.address}</span>
+                  <span className="text-xs text-resort-300 font-medium block mt-1">{RESORT_INFO.contact.postalAddress}</span>
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Phone className="w-4 h-4 text-resort-400 shrink-0" />
@@ -101,7 +106,7 @@ export default function Footer() {
               </div>
               <div className="pt-2">
                 <a
-                  href={getWhatsAppLink('Hello Le Voyage Resort, I would like to make an enquiry.')}
+                  href={getWhatsAppLink('Hello LE-VOYAGE Resort, I would like to make an enquiry.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2 rounded-lg text-xs font-semibold shadow transition"
@@ -117,7 +122,7 @@ export default function Footer() {
 
         {/* Footer Bottom Bar */}
         <div className="pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-slate-400">
-          <p>© {currentYear} Le Voyage Resort Kitale. All rights reserved.</p>
+          <p>© {currentYear} LE-VOYAGE Resort Kitale. All rights reserved.</p>
           <div className="flex items-center space-x-6">
             <a href="#" className="hover:text-white transition flex items-center gap-1">
               <Facebook className="w-4 h-4 text-resort-400" />

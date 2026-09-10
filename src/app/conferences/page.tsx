@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Users, Wifi, Tv, Mic, CheckCircle, MessageCircle, Mail, Loader2 } from 'lucide-react';
-import { getWhatsAppLink } from '@/config/resortInfo';
+import { RESORT_INFO, getWhatsAppLink } from '@/config/resortInfo';
 
 export default function ConferencesPage() {
   const [loading, setLoading] = useState(false);
@@ -164,7 +164,7 @@ export default function ConferencesPage() {
               
               <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
                 <a
-                  href={getWhatsAppLink(`Hello Le Voyage Resort,\n\nI would like to enquire about your conference/event facilities.\n\nName: ${formData.contact_name}\nOrganization: ${formData.organization || 'N/A'}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nEvent Type: ${formData.event_type}\nEvent Date: ${formData.event_date}\nExpected Guests: ${formData.attendees}\n\nRequirements:\n${formData.message || 'None'}\n\nPlease provide availability and pricing information.\n\nThank you.`)}
+                  href={getWhatsAppLink(`Hello LE-VOYAGE Resort,\n\nI would like to enquire about your conference/event facilities.\n\nName: ${formData.contact_name}\nOrganization: ${formData.organization || 'N/A'}\nPhone: ${formData.phone}\nEmail: ${formData.email}\n\nEvent Type: ${formData.event_type}\nEvent Date: ${formData.event_date}\nExpected Guests: ${formData.attendees}\n\nRequirements:\n${formData.message || 'None'}\n\nPlease provide availability and pricing information.\n\nThank you.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition"
@@ -173,7 +173,7 @@ export default function ConferencesPage() {
                   Send via WhatsApp
                 </a>
                 <a
-                  href={`mailto:gackstoneb@gmail.com?subject=${encodeURIComponent(`Conference Quote Request - ${formData.event_type}`)}&body=${encodeURIComponent(`Contact Name: ${formData.contact_name}\nOrganization: ${formData.organization || 'N/A'}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nEvent Type: ${formData.event_type}\nEvent Date: ${formData.event_date}\nAttendees: ${formData.attendees}\nRequirements: ${formData.message || 'None'}`)}`}
+                  href={`mailto:${RESORT_INFO.contact.email}?subject=${encodeURIComponent(`LE-VOYAGE Resort Conference Quote Request - ${formData.event_type}`)}&body=${encodeURIComponent(`Contact Name: ${formData.contact_name}\nOrganization: ${formData.organization || 'N/A'}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nEvent Type: ${formData.event_type}\nEvent Date: ${formData.event_date}\nAttendees: ${formData.attendees}\nRequirements: ${formData.message || 'None'}`)}`}
                   className="bg-resort-600 hover:bg-resort-700 text-white px-5 py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition"
                 >
                   <Mail className="w-4 h-4" />
@@ -298,7 +298,7 @@ export default function ConferencesPage() {
                   {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <span>Send Event Enquiry</span>}
                 </button>
                 <a
-                  href={getWhatsAppLink('Hello Le Voyage Resort, I would like to enquire about holding an event at your venue.')}
+                  href={getWhatsAppLink('Hello LE-VOYAGE Resort, I would like to enquire about holding an event at your venue.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-emerald-600 hover:bg-emerald-500 text-white px-6 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition"

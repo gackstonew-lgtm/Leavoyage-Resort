@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { X, Calendar, User, Mail, Phone, CheckCircle, AlertCircle, Loader2, MessageCircle } from 'lucide-react';
-import { getWhatsAppLink } from '@/config/resortInfo';
+import { RESORT_INFO, getWhatsAppLink } from '@/config/resortInfo';
 
 interface BookingModalProps {
   isOpen: boolean;
@@ -122,7 +122,7 @@ export default function BookingModal({ isOpen, onClose, preselectedRoom }: Booki
   // 3. Early return AFTER all hook declarations
   if (!isOpen) return null;
 
-  const whatsappMessage = `Hello Le Voyage Resort, I would like to reserve a room.\nName: ${formData.guest_name || 'Guest'}\nRoom Type: ${formData.room_type}\nCheck-in: ${formData.check_in || 'Pending'}\nCheck-out: ${formData.check_out || 'Pending'}`;
+  const whatsappMessage = `Hello LE-VOYAGE Resort, I would like to reserve a room.\nName: ${formData.guest_name || 'Guest'}\nRoom Type: ${formData.room_type}\nCheck-in: ${formData.check_in || 'Pending'}\nCheck-out: ${formData.check_out || 'Pending'}`;
 
   return (
     <div
@@ -138,7 +138,7 @@ export default function BookingModal({ isOpen, onClose, preselectedRoom }: Booki
           <div>
             <h2 className="text-xl font-serif font-bold flex items-center gap-2">
               <Calendar className="w-5 h-5 text-resort-400" />
-              Reserve Your Stay — Le Voyage Resort
+              Reserve Your Stay — LE-VOYAGE Resort
             </h2>
             <p className="text-xs text-resort-300 mt-0.5">Submit your booking request for instant processing</p>
           </div>
@@ -165,11 +165,11 @@ export default function BookingModal({ isOpen, onClose, preselectedRoom }: Booki
                 <span className="text-xs text-resort-700 font-semibold uppercase tracking-wider block">Booking Reference</span>
                 <span className="text-2xl font-mono font-bold text-resort-950 mt-1 block">{successResponse.reference_no}</span>
               </div>
-              <p className="text-xs text-slate-500">Your booking enquiry has been submitted. Please wait for confirmation from Le Voyage Resort via phone or email.</p>
+              <p className="text-xs text-slate-500">Your booking enquiry has been submitted. Please wait for confirmation from LE-VOYAGE Resort via phone or email.</p>
               
               <div className="pt-4 flex flex-col sm:flex-row gap-3 justify-center">
                 <a
-                  href={getWhatsAppLink(`Hello Le Voyage Resort, I submitted booking ref: ${successResponse.reference_no} for ${formData.room_type} (${formData.check_in} to ${formData.check_out}).`)}
+                  href={getWhatsAppLink(`Hello LE-VOYAGE Resort, I submitted booking ref: ${successResponse.reference_no} for ${formData.room_type} (${formData.check_in} to ${formData.check_out}).`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition"
@@ -178,7 +178,7 @@ export default function BookingModal({ isOpen, onClose, preselectedRoom }: Booki
                   Confirm via WhatsApp
                 </a>
                 <a
-                  href={`mailto:gackstoneb@gmail.com?subject=${encodeURIComponent(`Booking Request Ref: ${successResponse.reference_no}`)}&body=${encodeURIComponent(`Hello Le Voyage Resort,\n\nI submitted a booking request.\nReference: ${successResponse.reference_no}\nGuest Name: ${formData.guest_name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nRoom Type: ${formData.room_type}\nCheck-in: ${formData.check_in}\nCheck-out: ${formData.check_out}\nGuests: ${formData.adults} Adults, ${formData.children} Children\nSpecial Requests: ${formData.special_requests || 'None'}`)}`}
+                  href={`mailto:${RESORT_INFO.contact.bookingEmail}?subject=${encodeURIComponent(`LE-VOYAGE Resort Booking Request Ref: ${successResponse.reference_no}`)}&body=${encodeURIComponent(`Hello LE-VOYAGE Resort,\n\nI submitted a booking request.\nReference: ${successResponse.reference_no}\nGuest Name: ${formData.guest_name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nRoom Type: ${formData.room_type}\nCheck-in: ${formData.check_in}\nCheck-out: ${formData.check_out}\nGuests: ${formData.adults} Adults, ${formData.children} Children\nSpecial Requests: ${formData.special_requests || 'None'}`)}`}
                   className="bg-resort-600 hover:bg-resort-700 text-white px-5 py-2.5 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition"
                 >
                   <Mail className="w-4 h-4" />

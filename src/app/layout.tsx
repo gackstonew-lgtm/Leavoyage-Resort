@@ -4,11 +4,17 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import WhatsAppButton from '@/components/common/WhatsAppButton';
 import { RESORT_INFO } from '@/config/resortInfo';
+import { OrderProvider } from '@/context/OrderContext';
+import OrderDrawer from '@/components/menu/OrderDrawer';
+import FloatingOrderBar from '@/components/menu/FloatingOrderBar';
 
 export const metadata: Metadata = {
-  title: 'Le Voyage Resort Kitale — Luxury Accommodation, Conferences & Dining',
-  description: 'Experience comfort, hospitality and serenity at Le Voyage Resort Kitale. Luxury suites, cottages, state-of-the-art conference facilities, fine dining, and swimming pool.',
+  title: 'LE-VOYAGE Resort, Home Away From Home',
+  description: 'LE-VOYAGE Resort, Home Away From Home. Luxury suites, cottages, state-of-the-art conference facilities, fine dining, and swimming pool in Kitale.',
   keywords: [
+    'LE-VOYAGE Resort',
+    'LE-VOYAGE',
+    'LE-VOYAGE Kitale',
     'Le Voyage Resort Kitale',
     'Hotels in Kitale',
     'Accommodation in Kitale',
@@ -19,10 +25,10 @@ export const metadata: Metadata = {
     'Trans-Nzoia hospitality'
   ],
   openGraph: {
-    title: 'Le Voyage Resort Kitale',
-    description: 'Experience comfort, hospitality and serenity in the heart of Kitale.',
+    title: 'LE-VOYAGE Resort, Home Away From Home',
+    description: 'LE-VOYAGE Resort, Home Away From Home. Premier destination for accommodation, conferences, and dining.',
     url: 'https://levoyageresort.co.ke',
-    siteName: 'Le Voyage Resort',
+    siteName: 'LE-VOYAGE Resort',
     locale: 'en_KE',
     type: 'website',
   },
@@ -114,10 +120,14 @@ export default function RootLayout({
           <input name="attendees" />
           <textarea name="message"></textarea>
         </form>
-        <Header />
-        <main className="flex-grow">{children}</main>
-        <Footer />
-        <WhatsAppButton variant="floating" />
+        <OrderProvider>
+          <Header />
+          <main className="flex-grow">{children}</main>
+          <Footer />
+          <WhatsAppButton variant="floating" />
+          <OrderDrawer />
+          <FloatingOrderBar />
+        </OrderProvider>
       </body>
     </html>
   );

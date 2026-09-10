@@ -36,7 +36,7 @@ export default function DiningSection() {
             Gastronomy & Culinary Excellence
           </span>
           <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900">
-            Exquisite Dining at Le Voyage
+            Exquisite Dining at LE-VOYAGE
           </h2>
           <p className="text-slate-600 text-sm leading-relaxed">
             From sunrise buffet breakfasts to intimate candlelight dinners and outdoor poolside cocktails, discover flavors crafted with passion.
@@ -74,7 +74,7 @@ export default function DiningSection() {
 
                   <div className="pt-3 border-t border-slate-100">
                     <a
-                      href={getWhatsAppLink(`Hello Le Voyage Resort, I would like to reserve a table at the restaurant.`)}
+                      href={getWhatsAppLink(`Hello LE-VOYAGE Resort, I would like to reserve a table at the restaurant.`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs font-semibold text-resort-600 hover:text-resort-800 flex items-center gap-1.5 transition"
@@ -89,12 +89,21 @@ export default function DiningSection() {
           })}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
           <Link
-            href="/dining"
-            className="bg-resort-950 hover:bg-resort-900 text-white text-xs font-semibold px-6 py-3 rounded-lg shadow inline-block transition"
+            href="/dining-menu"
+            className="w-full sm:w-auto bg-resort-600 hover:bg-resort-700 text-white text-xs sm:text-sm font-semibold px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 border border-resort-500 active:scale-95"
           >
-            View Dining Menus & Catering Options
+            <Utensils className="w-4 h-4" />
+            <span>Explore Dining Menu</span>
+          </Link>
+
+          <Link
+            href="/bar-menu"
+            className="w-full sm:w-auto bg-resort-950 hover:bg-resort-900 text-white text-xs sm:text-sm font-semibold px-7 py-3.5 rounded-xl shadow-md hover:shadow-lg transition flex items-center justify-center gap-2 border border-resort-800 active:scale-95"
+          >
+            <Wine className="w-4 h-4 text-resort-400" />
+            <span>Explore Bar Menu</span>
           </Link>
         </div>
 

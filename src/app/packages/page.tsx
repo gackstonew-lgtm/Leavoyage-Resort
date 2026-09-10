@@ -13,7 +13,7 @@ export default function PackagesPage() {
       title: 'Romantic Couples Weekend Escape',
       price: 'KES 22,000 / couple',
       image: '/images/swimming-pool-4.jpeg',
-      alt: 'Le Voyage Resort romantic couples weekend getaway',
+      alt: 'LE-VOYAGE romantic couples weekend getaway',
       description: 'Escape to Kitale for a 2-night romantic stay in our Executive Suite. Includes welcome sparkling wine, full-board dining, complimentary swimming pool access, and late check-out.',
       terms: 'Valid Friday to Sunday. Advance reservation required.',
       highlights: ['2 Nights Accommodation', 'Full-Board Meals Included', 'Welcome Drinks', 'Pool & Gardens Access'],
@@ -22,7 +22,7 @@ export default function PackagesPage() {
       title: 'Full-Day Corporate Conference Package',
       price: 'KES 2,800 / delegate',
       image: '/images/conference-2.jpeg',
-      alt: 'Le Voyage Resort corporate conference hall',
+      alt: 'LE-VOYAGE corporate conference hall',
       description: 'Comprehensive seminar bundle including air-conditioned hall hire, 10am & 4pm tea breaks with fresh snacks, 3-course buffet lunch, LCD projector, and high-speed Wi-Fi.',
       terms: 'Minimum 15 delegates required.',
       highlights: ['AC Hall Hire', '2 Tea Breaks + Buffet Lunch', 'AV & Projector Included', 'Fiber Wi-Fi'],
@@ -31,7 +31,7 @@ export default function PackagesPage() {
       title: 'Garden Wedding & Reception Bundle',
       price: 'Custom Quote Available',
       image: '/images/gardens-3.jpeg',
-      alt: 'Le Voyage Resort garden wedding lawn venue',
+      alt: 'LE-VOYAGE garden wedding lawn venue',
       description: 'Host your dream outdoor wedding on our lush manicured gardens. Includes manicured lawn venue hire, bridal party dressing room, complimentary honeymoon suite, and dedicated event coordinator.',
       terms: 'Pre-wedding consultation and booking required.',
       highlights: ['Lawn Venue Hire', 'Bridal Dressing Room', 'Honeymoon Suite Night', 'Dedicated Coordinator'],
@@ -93,7 +93,7 @@ export default function PackagesPage() {
                   Book Package
                 </button>
                 <a
-                  href={getWhatsAppLink(`Hello Le Voyage Resort, I want to enquiry about the ${pkg.title}.`)}
+                  href={getWhatsAppLink(`Hello LE-VOYAGE Resort, I want to enquire about the ${pkg.title}.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center transition"

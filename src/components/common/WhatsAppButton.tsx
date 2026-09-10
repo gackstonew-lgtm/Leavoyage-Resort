@@ -10,7 +10,7 @@ interface WhatsAppButtonProps {
 }
 
 export default function WhatsAppButton({
-  message = 'Hello Le Voyage Resort, I would like to make an enquiry.',
+  message = 'Hello LE-VOYAGE Resort, I would like to make an enquiry.',
   variant = 'floating',
   label = 'Chat on WhatsApp',
 }: WhatsAppButtonProps) {

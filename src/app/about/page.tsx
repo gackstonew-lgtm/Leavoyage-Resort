@@ -11,7 +11,7 @@ export default function AboutPage() {
             Our Hospitality Journey
           </span>
           <h1 className="text-3xl sm:text-5xl font-serif font-bold mb-4">
-            About Le Voyage Resort Kitale
+            About LE-VOYAGE Resort Kitale
           </h1>
           <p className="text-slate-300 text-sm max-w-2xl mx-auto">
             Discover our commitment to providing world-class hospitality, tranquil relaxation, executive corporate spaces, and unforgettable dining experiences in Kitale.
@@ -31,15 +31,15 @@ export default function AboutPage() {
               Hospitality Built Around Comfort & Distinction
             </h2>
             <p className="text-slate-600 text-sm leading-relaxed">
-              Le Voyage Resort was established to fill a distinct need for premier hospitality, executive conference facilities, and serene leisure spaces in Kitale, Trans-Nzoia County. Located conveniently off Kapenguria Road, our resort offers guests a secluded haven away from city noise while keeping them connected to essential amenities.
+              LE-VOYAGE Resort was established to fill a distinct need for premier hospitality, executive conference facilities, and serene leisure spaces in Kitale, Trans-Nzoia County. Located Kitale-Kapenguria Road, next to Moi University, Bakhita Campus, our resort offers guests a secluded haven away from city noise while keeping them connected to essential amenities.
             </p>
 
             <div className="p-4 bg-resort-50 rounded-xl border border-resort-200">
               <span className="text-xs font-bold text-resort-800 uppercase tracking-widest block mb-1">
-                Our Brand Pillar
+                Our Brand Slogan
               </span>
               <span className="text-xl font-serif font-bold text-resort-950">
-                {RESORT_INFO.coreValues}
+                {RESORT_INFO.tagline}
               </span>
             </div>
 
@@ -51,7 +51,7 @@ export default function AboutPage() {
           <div className="rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
             <img
               src="/images/Resort (2).jpeg"
-              alt="Le Voyage Resort Kitale Main Entrance and Executive Building"
+              alt="LE-VOYAGE Resort Kitale Main Entrance and Executive Building"
               className="w-full h-[420px] object-cover"
             />
           </div>
@@ -60,7 +60,7 @@ export default function AboutPage() {
         {/* Why Choose Us */}
         <div className="bg-slate-50 rounded-3xl p-8 sm:p-12 border border-slate-200 space-y-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900">Why Guests Choose Le Voyage</h2>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900">Why Guests Choose LE-VOYAGE Resort</h2>
             <p className="text-xs text-slate-600">The premier destination for business executives, families, and event planners.</p>
           </div>
 
@@ -99,7 +99,7 @@ export default function AboutPage() {
 
         {/* CTA */}
         <div className="bg-resort-950 text-white rounded-3xl p-8 sm:p-12 text-center space-y-6">
-          <h2 className="text-2xl sm:text-4xl font-serif font-bold">Experience Le Voyage Resort Today</h2>
+          <h2 className="text-2xl sm:text-4xl font-serif font-bold">Experience LE-VOYAGE Resort Today</h2>
           <p className="text-slate-300 text-xs sm:text-sm max-w-xl mx-auto">
             Book your stay online or contact our reservations team to discuss customized room rates and conference event packages.
           </p>

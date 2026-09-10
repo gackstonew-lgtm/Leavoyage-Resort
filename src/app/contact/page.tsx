@@ -65,7 +65,7 @@ export default function ContactPage() {
             Get In Touch
           </span>
           <h1 className="text-3xl sm:text-5xl font-serif font-bold mb-4">
-            Contact Le Voyage Resort
+            Contact LE-VOYAGE Resort
           </h1>
           <p className="text-slate-300 text-sm max-w-2xl mx-auto">
             Have questions about room bookings, conference packages, or garden weddings? Reach out directly or send us a message below.
@@ -86,7 +86,8 @@ export default function ContactPage() {
                   <MapPin className="w-5 h-5 text-resort-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-white block">Physical Location</span>
-                    <span className="text-slate-300">{RESORT_INFO.contact.address}</span>
+                    <span className="text-slate-300 block">{RESORT_INFO.contact.address}</span>
+                    <span className="text-resort-300 text-xs block mt-1">{RESORT_INFO.contact.postalAddress}</span>
                   </div>
                 </div>
 
@@ -121,7 +122,7 @@ export default function ContactPage() {
 
               <div className="pt-4 border-t border-resort-800">
                 <a
-                  href={getWhatsAppLink('Hello Le Voyage Resort, I would like to make a direct enquiry.')}
+                  href={getWhatsAppLink('Hello LE-VOYAGE Resort, I would like to make a direct enquiry.')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-full bg-emerald-600 hover:bg-emerald-500 text-white py-3 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition shadow"
@@ -157,7 +158,7 @@ export default function ContactPage() {
                 
                 <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
                   <a
-                    href={getWhatsAppLink(`Hello Le Voyage Resort,\nName: ${formData.name || 'Guest'}\nSubject: ${formData.subject}\nMessage: ${formData.message}`)}
+                    href={getWhatsAppLink(`Hello LE-VOYAGE Resort,\nName: ${formData.name || 'Guest'}\nSubject: ${formData.subject}\nMessage: ${formData.message}`)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition"
@@ -166,7 +167,7 @@ export default function ContactPage() {
                     Send via WhatsApp
                   </a>
                   <a
-                    href={`mailto:gackstoneb@gmail.com?subject=${encodeURIComponent(`Le Voyage Resort Enquiry: ${formData.subject}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'N/A'}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`)}`}
+                    href={`mailto:${RESORT_INFO.contact.email}?subject=${encodeURIComponent(`LE-VOYAGE Resort Enquiry: ${formData.subject}`)}&body=${encodeURIComponent(`Name: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone || 'N/A'}\nSubject: ${formData.subject}\n\nMessage:\n${formData.message}`)}`}
                     className="bg-resort-600 hover:bg-resort-700 text-white px-5 py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-2 transition"
                   >
                     <Mail className="w-4 h-4" />

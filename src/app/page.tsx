@@ -28,7 +28,7 @@ export default function HomePage() {
               Visual Tour
             </span>
             <h2 className="text-3xl sm:text-4xl font-serif font-bold text-slate-900">
-              Explore Le Voyage Resort
+              Explore LE-VOYAGE Resort
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm">
               Discover our rooms, dining spaces, manicured lawns, conference halls, and swimming pool.
@@ -49,7 +49,7 @@ export default function HomePage() {
                 <span className="text-xs font-bold uppercase tracking-widest text-resort-400 block mb-2">
                   Visit Us in Kitale
                 </span>
-                <h3 className="text-2xl font-serif font-bold mb-4">Find Le Voyage Resort</h3>
+                <h3 className="text-2xl font-serif font-bold mb-4">Find LE-VOYAGE Resort</h3>
                 <p className="text-slate-300 text-xs leading-relaxed mb-6">
                   Conveniently situated along the scenic Kitale corridor, providing guest privacy while offering easy access to town facilities and transport hubs.
                 </p>
@@ -57,7 +57,10 @@ export default function HomePage() {
                 <div className="space-y-4 text-xs">
                   <div className="flex items-start gap-3">
                     <MapPin className="w-5 h-5 text-resort-400 shrink-0 mt-0.5" />
-                    <span>{RESORT_INFO.contact.address}</span>
+                    <div>
+                      <span className="block">{RESORT_INFO.contact.address}</span>
+                      <span className="text-resort-300 text-xs block mt-0.5">{RESORT_INFO.contact.postalAddress}</span>
+                    </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Phone className="w-4 h-4 text-resort-400 shrink-0" />
@@ -89,7 +92,7 @@ export default function HomePage() {
             {/* Interactive Map Embed */}
             <div className="lg:col-span-2 rounded-2xl overflow-hidden shadow-lg border border-slate-200 min-h-[350px]">
               <iframe
-                title="Le Voyage Resort Location Map"
+                title="LE-VOYAGE Resort Location Map"
                 src={RESORT_INFO.contact.googleMapsEmbedUrl}
                 className="w-full h-full min-h-[380px] border-0"
                 allowFullScreen

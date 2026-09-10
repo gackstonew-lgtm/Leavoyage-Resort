@@ -29,7 +29,7 @@ export async function POST(request: Request) {
 
     return NextResponse.json({
       success: true,
-      message: 'Thank you for reaching out to Le Voyage Resort! Your enquiry is ready for transmission.',
+      message: 'Thank you for reaching out to LE-VOYAGE! Your enquiry is ready for transmission.',
       mailto_url: enquiryResult.mailto_url,
       whatsapp_url: enquiryResult.whatsapp_url,
     });

@@ -212,7 +212,7 @@ export default function FeaturedRooms() {
                   Book This Room
                 </button>
                 <a
-                  href={getWhatsAppLink(`Hello Le Voyage Resort, I would like to enquire about reserving the ${selectedRoom.name}.`)}
+                  href={getWhatsAppLink(`Hello LE-VOYAGE Resort, I would like to enquire about reserving the ${selectedRoom.name}.`)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-emerald-600 hover:bg-emerald-500 text-white px-5 py-3 rounded-lg text-sm font-semibold flex items-center justify-center gap-2 transition"

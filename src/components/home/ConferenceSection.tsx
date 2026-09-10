@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Wifi, Tv, ArrowRight, X, Loader2, CheckCircle } from 'lucide-react';
-import { getWhatsAppLink } from '@/config/resortInfo';
+import { RESORT_INFO, getWhatsAppLink } from '@/config/resortInfo';
 
 export default function ConferenceSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -164,7 +164,7 @@ export default function ConferenceSection() {
                   
                   <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
                     <a
-                      href={getWhatsAppLink(`Hello Le Voyage Resort, I would like to request a quote for a ${formData.event_type} on ${formData.event_date} for ${formData.attendees} attendees.`)}
+                      href={getWhatsAppLink(`Hello LE-VOYAGE Resort, I would like to request a quote for a ${formData.event_type} on ${formData.event_date} for ${formData.attendees} attendees.`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition"
@@ -172,7 +172,7 @@ export default function ConferenceSection() {
                       <span>Send via WhatsApp</span>
                     </a>
                     <a
-                      href={`mailto:gackstoneb@gmail.com?subject=${encodeURIComponent(`Conference Quote Request - ${formData.event_type}`)}&body=${encodeURIComponent(`Contact Name: ${formData.contact_name}\nOrganization: ${formData.organization || 'N/A'}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nEvent Type: ${formData.event_type}\nEvent Date: ${formData.event_date}\nAttendees: ${formData.attendees}\nRequirements: ${formData.message || 'None'}`)}`}
+                      href={`mailto:${RESORT_INFO.contact.email}?subject=${encodeURIComponent(`LE-VOYAGE Resort Conference Quote Request - ${formData.event_type}`)}&body=${encodeURIComponent(`Contact Name: ${formData.contact_name}\nOrganization: ${formData.organization || 'N/A'}\nEmail: ${formData.email}\nPhone: ${formData.phone}\nEvent Type: ${formData.event_type}\nEvent Date: ${formData.event_date}\nAttendees: ${formData.attendees}\nRequirements: ${formData.message || 'None'}`)}`}
                       className="bg-resort-600 hover:bg-resort-700 text-white px-4 py-2.5 rounded-lg text-xs font-semibold flex items-center justify-center gap-1.5 transition"
                     >
                       <span>Send via Email</span>
@@ -298,7 +298,7 @@ export default function ConferenceSection() {
                       {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <span>Submit Event Quote</span>}
                     </button>
                     <a
-                      href={getWhatsAppLink(`Hello Le Voyage Resort, I want to enquire about hiring a conference facility.`)}
+                      href={getWhatsAppLink(`Hello LE-VOYAGE Resort, I want to enquire about hiring a conference facility.`)}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="bg-emerald-600 hover:bg-emerald-500 text-white px-4 py-2.5 rounded-lg text-xs font-semibold"
