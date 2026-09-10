@@ -84,9 +84,11 @@ export default function Header() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
             {/* Resort Brand Logo */}
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-resort-500 to-resort-700 flex items-center justify-center text-white font-serif font-bold text-xl shadow-md border border-resort-400/30 group-hover:scale-105 transition transform">
-                LV
-              </div>
+              <img
+                src="/images/logo.jpeg"
+                alt="Le Voyage Resort Official Logo"
+                className="w-10 h-10 rounded-full object-contain bg-white shadow-md border border-resort-400/30 group-hover:scale-105 transition transform p-0.5"
+              />
               <div>
                 <span className="text-xl sm:text-2xl font-serif font-bold text-white tracking-wide block leading-none">
                   LE VOYAGE

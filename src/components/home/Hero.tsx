@@ -12,19 +12,24 @@ export default function Hero() {
 
   const heroSlides = [
     {
-      image: '/leavoyage-images/gardens.jpeg',
+      image: '/images/Resort (2).jpeg',
       title: 'Welcome to Le Voyage Resort',
       subtitle: 'Experience comfort, hospitality and serenity in the heart of Kitale.',
     },
     {
-      image: '/leavoyage-images/accomodation.jpeg',
+      image: '/images/Rooms.jpeg',
       title: 'Luxury Accommodation & Cottages',
       subtitle: 'Unwind in beautifully appointed suites surrounded by tranquil manicured gardens.',
     },
     {
-      image: '/leavoyage-images/swimming%20pool.jpeg',
+      image: '/images/swimming-pool-1.jpeg',
       title: 'World-Class Conferences & Facilities',
       subtitle: 'State-of-the-art halls and stunning outdoor venues for corporate & social occasions.',
+    },
+    {
+      image: '/images/Gardens.jpeg',
+      title: 'Lush Tropical Gardens & Lawns',
+      subtitle: 'Expansive verdant grounds ideal for garden weddings, team building, and relaxation.',
     },
   ];
 

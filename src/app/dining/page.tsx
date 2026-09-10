@@ -48,6 +48,50 @@ export default function DiningPage() {
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+        {/* Atmosphere Visual Showcase */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="rounded-2xl overflow-hidden shadow-card border border-slate-200 group bg-white">
+            <div className="h-52 overflow-hidden">
+              <img
+                src="/images/Dinning.jpeg"
+                alt="Le Voyage Resort main restaurant dining hall"
+                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="font-serif font-bold text-slate-900 text-sm">Main Restaurant Dining Hall</h3>
+              <p className="text-xs text-slate-500 mt-1">Elegant ambience serving African fusion and continental cuisines.</p>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden shadow-card border border-slate-200 group bg-white">
+            <div className="h-52 overflow-hidden">
+              <img
+                src="/images/Bar & Lounge.jpeg"
+                alt="Le Voyage Resort veranda cocktail bar and outdoor lounge"
+                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="font-serif font-bold text-slate-900 text-sm">Veranda Cocktail Bar</h3>
+              <p className="text-xs text-slate-500 mt-1">Open-air veranda seating overlooking lush resort greenery.</p>
+            </div>
+          </div>
+
+          <div className="rounded-2xl overflow-hidden shadow-card border border-slate-200 group bg-white">
+            <div className="h-52 overflow-hidden">
+              <img
+                src="/images/Bar & Lounge (2).jpeg"
+                alt="Le Voyage Resort indoor cocktail bar and lounge"
+                className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+              />
+            </div>
+            <div className="p-4">
+              <h3 className="font-serif font-bold text-slate-900 text-sm">Indoor Bar & Lounge</h3>
+              <p className="text-xs text-slate-500 mt-1">Comfortable lounge setting with premium drinks and spirits.</p>
+            </div>
+          </div>
+        </div>
         {menuCategories.map((cat, idx) => (
           <div key={idx} className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-card">
             <h2 className="text-xl sm:text-2xl font-serif font-bold text-resort-950 mb-6 border-b border-slate-100 pb-3">

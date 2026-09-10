@@ -4,27 +4,13 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { Users, Bed, Maximize, Check, ArrowRight, MessageCircle, X } from 'lucide-react';
 import { getWhatsAppLink } from '@/config/resortInfo';
+import { staticRooms, RoomRecord } from '@/lib/db';
 import BookingModal from '../booking/BookingModal';
 
-interface Room {
-  id: number;
-  name: string;
-  slug: string;
-  description: string;
-  short_description: string;
-  price_per_night: number;
-  capacity: number;
-  bed_type: string;
-  room_size: string;
-  amenities: string[];
-  main_image: string;
-  gallery_images: string[];
-}
-
 export default function FeaturedRooms() {
-  const [rooms, setRooms] = useState<Room[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
+  const [rooms, setRooms] = useState<RoomRecord[]>(staticRooms);
+  const [loading, setLoading] = useState(false);
+  const [selectedRoom, setSelectedRoom] = useState<RoomRecord | null>(null);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
   const [bookingRoomName, setBookingRoomName] = useState('');
 
@@ -33,11 +19,11 @@ export default function FeaturedRooms() {
       try {
         const res = await fetch('/api/rooms');
         const data = await res.json();
-        if (data.success) {
+        if (data.success && data.data) {
           setRooms(data.data);
         }
       } catch (e) {
-        console.error('Failed to load rooms', e);
+        // Fallback to staticRooms already initialized
       } finally {
         setLoading(false);
       }

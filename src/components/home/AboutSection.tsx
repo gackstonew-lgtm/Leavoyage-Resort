@@ -12,8 +12,8 @@ export default function AboutSection() {
           <div className="relative">
             <div className="relative z-10 rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <img
-                src="/leavoyage-images/gardens%20(2).jpeg"
-                alt="Le Voyage Resort gardens in Kitale"
+                src="/images/Resort (2).jpeg"
+                alt="Le Voyage Resort entrance and serene grounds in Kitale"
                 className="w-full h-[400px] object-cover hover:scale-105 transition duration-700"
               />
             </div>

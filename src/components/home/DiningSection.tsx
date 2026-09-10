@@ -9,21 +9,21 @@ export default function DiningSection() {
       time: '06:00 AM – 10:00 PM',
       icon: Utensils,
       description: 'Savor rich African fusion culinary creations, fresh local Kitale produce, and continental specialties prepared by our master chefs.',
-      image: '/leavoyage-images/dinning.jpeg',
+      image: '/images/Dinning.jpeg',
     },
     {
       title: 'Coffee & Breakfast Lounge',
       time: '06:00 AM – 11:00 AM',
       icon: Coffee,
       description: 'Start your morning with freshly brewed Kenyan highlands coffee, handmade pastries, fresh fruit juices, and cooked-to-order breakfasts.',
-      image: '/leavoyage-images/dinning%20(2).jpeg',
+      image: '/images/dinning-2.jpeg',
     },
     {
       title: 'Resort Cocktail Bar & Lounge',
       time: '12:00 PM – 11:00 PM',
       icon: Wine,
       description: 'Relax with signature handcrafted cocktails, premium spirits, fine wines, and chilled beverages in a serene, ambient lounge setting.',
-      image: '/leavoyage-images/dinning.jpeg',
+      image: '/images/Bar & Lounge (2).jpeg',
     },
   ];
 

@@ -2,35 +2,21 @@
 
 import { useState, useEffect } from 'react';
 import { X, ChevronLeft, ChevronRight, Maximize2 } from 'lucide-react';
-
-interface GalleryItem {
-  id: number;
-  title: string;
-  category: string;
-  image_url: string;
-  alt_text: string;
-}
+import { staticGallery, GalleryRecord } from '@/lib/db';
 
 export default function GalleryGrid() {
-  const [items, setItems] = useState<GalleryItem[]>([]);
+  const [items, setItems] = useState<GalleryRecord[]>(staticGallery);
   const [activeCategory, setActiveCategory] = useState('All');
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-  const categories = ['All', 'Accommodation', 'Rooms', 'Dining', 'Conference', 'Swimming Pool', 'Gardens'];
+  const categories = ['All', 'Accommodation', 'Rooms', 'Dining', 'Conference', 'Swimming Pool', 'Gardens', 'Facilities', 'Resort'];
 
   useEffect(() => {
-    async function fetchGallery() {
-      try {
-        const res = await fetch(`/api/gallery?category=${encodeURIComponent(activeCategory)}`);
-        const data = await res.json();
-        if (data.success) {
-          setItems(data.data);
-        }
-      } catch (e) {
-        console.error('Failed to load gallery', e);
-      }
+    if (activeCategory === 'All') {
+      setItems(staticGallery);
+    } else {
+      setItems(staticGallery.filter((item) => item.category === activeCategory));
     }
-    fetchGallery();
   }, [activeCategory]);
 
   const openLightbox = (index: number) => {

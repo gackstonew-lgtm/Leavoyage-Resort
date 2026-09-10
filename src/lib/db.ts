@@ -10,9 +10,9 @@ export interface RoomRecord {
   capacity: number;
   bed_type: string;
   room_size: string;
-  amenities: string | string[];
+  amenities: string[];
   main_image: string;
-  gallery_images: string | string[];
+  gallery_images: string[];
   featured: number;
   active: number;
 }
@@ -50,8 +50,8 @@ export const staticRooms: RoomRecord[] = [
     bed_type: '1 King Bed',
     room_size: '45 sq.m',
     amenities: ['High-Speed Wi-Fi', 'Balcony', 'Air Conditioning', 'Flat-screen Smart TV', 'Mini Bar', 'Tea/Coffee Maker', 'Work Desk', 'En-suite Bathroom'],
-    main_image: '/images/accomodation-1.jpeg',
-    gallery_images: ['/images/accomodation-1.jpeg', '/images/accomodation-2.jpeg'],
+    main_image: '/images/Rooms.jpeg',
+    gallery_images: ['/images/Rooms.jpeg', '/images/Rooms (2).jpeg', '/images/accomodation-1.jpeg', '/images/accomodation-2.jpeg'],
     featured: 1,
     active: 1
   },
@@ -66,8 +66,8 @@ export const staticRooms: RoomRecord[] = [
     bed_type: '1 Queen Bed',
     room_size: '35 sq.m',
     amenities: ['High-Speed Wi-Fi', 'Air Conditioning', '32" Smart TV', 'Work Station', 'Electronic Safe', 'Complimentary Breakfast'],
-    main_image: '/images/accomodation-2.jpeg',
-    gallery_images: ['/images/accomodation-2.jpeg', '/images/accomodation-3.jpeg'],
+    main_image: '/images/Rooms (2).jpeg',
+    gallery_images: ['/images/Rooms (2).jpeg', '/images/accomodation-2.jpeg', '/images/accomodation-3.jpeg'],
     featured: 1,
     active: 1
   },
@@ -83,7 +83,7 @@ export const staticRooms: RoomRecord[] = [
     room_size: '70 sq.m',
     amenities: ['2 Private Bedrooms', 'Living Lounge', 'Private Patio', 'Wi-Fi', '2 Smart TVs', 'Kitchenette', 'Pool Access'],
     main_image: '/images/accomodation-3.jpeg',
-    gallery_images: ['/images/accomodation-3.jpeg', '/images/accomodation-4.jpeg'],
+    gallery_images: ['/images/accomodation-3.jpeg', '/images/Rooms.jpeg', '/images/accomodation-4.jpeg'],
     featured: 1,
     active: 1
   },
@@ -149,19 +149,42 @@ export const staticGallery: GalleryRecord[] = [
   { id: 2, title: 'Poolside Loungers & Sun Deck', category: 'Swimming Pool', image_url: '/images/swimming-pool-2.jpeg', alt_text: 'Le Voyage Resort swimming pool deck' },
   { id: 3, title: 'Poolside Relaxation Area', category: 'Swimming Pool', image_url: '/images/swimming-pool-3.jpeg', alt_text: 'Le Voyage Resort swimming pool area' },
   { id: 4, title: 'Swimming Pool Oasis', category: 'Swimming Pool', image_url: '/images/swimming-pool-4.jpeg', alt_text: 'Le Voyage Resort swimming pool view' },
-  { id: 5, title: 'Le Voyage Restaurant Dining Area', category: 'Dining', image_url: '/images/dinning-1.jpeg', alt_text: 'Le Voyage Resort dining area' },
-  { id: 6, title: 'Resort Dining & Culinary Experience', category: 'Dining', image_url: '/images/dinning-2.jpeg', alt_text: 'Le Voyage Resort dining room' },
-  { id: 7, title: 'Deluxe Executive Accommodation', category: 'Accommodation', image_url: '/images/accomodation-1.jpeg', alt_text: 'Le Voyage Resort accommodation' },
-  { id: 8, title: 'Superior Guest Accommodation', category: 'Accommodation', image_url: '/images/accomodation-2.jpeg', alt_text: 'Le Voyage Resort cottages' },
-  { id: 9, title: 'Executive Suite Guest Room', category: 'Rooms', image_url: '/images/accomodation-3.jpeg', alt_text: 'Le Voyage Resort guest room' },
-  { id: 10, title: 'Standard Twin Guest Room', category: 'Rooms', image_url: '/images/accomodation-4.jpeg', alt_text: 'Le Voyage Resort guest room interior' },
-  { id: 11, title: 'Grand Conference Hall Venue', category: 'Conference', image_url: '/images/conference-1.jpeg', alt_text: 'Le Voyage Resort conference venue' },
-  { id: 12, title: 'Executive Seminar Hall', category: 'Conference', image_url: '/images/conference-2.jpeg', alt_text: 'Le Voyage Resort conference hall' },
-  { id: 13, title: 'Tropical Resort Gardens', category: 'Gardens', image_url: '/images/gardens-1.jpeg', alt_text: 'Le Voyage Resort gardens' },
-  { id: 14, title: 'Manicured Lawn & Grounds', category: 'Gardens', image_url: '/images/gardens-2.jpeg', alt_text: 'Le Voyage Resort grounds' },
-  { id: 15, title: 'Garden Walkways & Trees', category: 'Gardens', image_url: '/images/gardens-3.jpeg', alt_text: 'Le Voyage Resort garden landscape' },
-  { id: 16, title: 'Outdoor Event Lawns', category: 'Gardens', image_url: '/images/gardens-4.jpeg', alt_text: 'Le Voyage Resort outdoor grounds' },
-  { id: 17, title: 'Resort Flora & Environment', category: 'Gardens', image_url: '/images/gardens-5.jpeg', alt_text: 'Le Voyage Resort garden flora' }
+  { id: 5, title: 'Main Restaurant Dining Hall', category: 'Dining', image_url: '/images/Dinning.jpeg', alt_text: 'Le Voyage Resort main restaurant dining hall' },
+  { id: 6, title: 'Veranda Cocktail Bar & Lounge', category: 'Dining', image_url: '/images/Bar & Lounge.jpeg', alt_text: 'Le Voyage Resort veranda cocktail bar and lounge' },
+  { id: 7, title: 'Indoor Cocktail Bar & Lounge', category: 'Dining', image_url: '/images/Bar & Lounge (2).jpeg', alt_text: 'Le Voyage Resort indoor cocktail bar and lounge seating' },
+  { id: 8, title: 'Le Voyage Restaurant Dining Area', category: 'Dining', image_url: '/images/dinning-1.jpeg', alt_text: 'Le Voyage Resort dining area' },
+  { id: 9, title: 'Resort Dining & Culinary Experience', category: 'Dining', image_url: '/images/dinning-2.jpeg', alt_text: 'Le Voyage Resort dining room' },
+  { id: 10, title: 'Signature Cocktail & Drinks Menu', category: 'Dining', image_url: '/images/Bar & Lounge (3).jpeg', alt_text: 'Le Voyage Resort signature drinks and cocktail menu' },
+  { id: 11, title: 'Bar Spirits & Liquor Selection', category: 'Dining', image_url: '/images/Bar & Lounge (4).jpeg', alt_text: 'Le Voyage Resort bar spirits and whisky menu' },
+  { id: 12, title: 'Beers, Wines & Soft Drinks Menu', category: 'Dining', image_url: '/images/Bar & Lounge (5).jpeg', alt_text: 'Le Voyage Resort beers wines and beverages menu' },
+  { id: 13, title: 'Breakfast, Beverages & Snacks Menu', category: 'Dining', image_url: '/images/Dinning (2).jpeg', alt_text: 'Le Voyage Resort breakfast and snacks menu' },
+  { id: 14, title: 'Chef Special Platters & Main Menu', category: 'Dining', image_url: '/images/Dining (3).jpeg', alt_text: 'Le Voyage Resort main course and grilled platters menu' },
+  { id: 15, title: 'Cottage Walkways & Landscaped Gardens', category: 'Accommodation', image_url: '/images/Rooms.jpeg', alt_text: 'Le Voyage Resort cottage walkways and lush gardens' },
+  { id: 16, title: 'Stone Cottage Rooms 06 & 07 Exterior', category: 'Accommodation', image_url: '/images/Rooms (2).jpeg', alt_text: 'Le Voyage Resort stone cottage rooms exterior' },
+  { id: 17, title: 'Deluxe Executive Accommodation', category: 'Accommodation', image_url: '/images/accomodation-1.jpeg', alt_text: 'Le Voyage Resort accommodation' },
+  { id: 18, title: 'Superior Guest Accommodation', category: 'Accommodation', image_url: '/images/accomodation-2.jpeg', alt_text: 'Le Voyage Resort cottages' },
+  { id: 19, title: 'Executive Suite Guest Room', category: 'Rooms', image_url: '/images/accomodation-3.jpeg', alt_text: 'Le Voyage Resort guest room' },
+  { id: 20, title: 'Standard Twin Guest Room', category: 'Rooms', image_url: '/images/accomodation-4.jpeg', alt_text: 'Le Voyage Resort guest room interior' },
+  { id: 21, title: 'Grand Conference Hall Venue', category: 'Conference', image_url: '/images/conference-1.jpeg', alt_text: 'Le Voyage Resort conference venue' },
+  { id: 22, title: 'Executive Seminar Hall', category: 'Conference', image_url: '/images/conference-2.jpeg', alt_text: 'Le Voyage Resort conference hall' },
+  { id: 23, title: 'Expansive Lawns & Kids Play Area', category: 'Gardens', image_url: '/images/Gardens.jpeg', alt_text: 'Le Voyage Resort expansive manicured lawns and kids playground' },
+  { id: 24, title: 'Recreational Lawns & Bouncing Castle', category: 'Gardens', image_url: '/images/Gardens (2).jpeg', alt_text: 'Le Voyage Resort recreational lawns with bouncing castle' },
+  { id: 25, title: 'Outdoor Team Building & Event Lawns', category: 'Gardens', image_url: '/images/Gardens (3).jpeg', alt_text: 'Le Voyage Resort outdoor team building and event lawns' },
+  { id: 26, title: 'Tropical Resort Gardens', category: 'Gardens', image_url: '/images/gardens-1.jpeg', alt_text: 'Le Voyage Resort gardens' },
+  { id: 27, title: 'Manicured Lawn & Grounds', category: 'Gardens', image_url: '/images/gardens-2.jpeg', alt_text: 'Le Voyage Resort grounds' },
+  { id: 28, title: 'Garden Walkways & Trees', category: 'Gardens', image_url: '/images/gardens-3.jpeg', alt_text: 'Le Voyage Resort garden landscape' },
+  { id: 29, title: 'Outdoor Event Lawns', category: 'Gardens', image_url: '/images/gardens-4.jpeg', alt_text: 'Le Voyage Resort outdoor grounds' },
+  { id: 30, title: 'Resort Flora & Environment', category: 'Gardens', image_url: '/images/gardens-5.jpeg', alt_text: 'Le Voyage Resort garden flora' },
+  { id: 31, title: 'Westim Salon & Spa Poolside Building', category: 'Facilities', image_url: '/images/Salon, Kinyozi & SPA (3).jpeg', alt_text: 'Le Voyage Resort Westim Salon and Spa exterior' },
+  { id: 32, title: 'Modern Salon & Barber Stations', category: 'Facilities', image_url: '/images/Salon, Kinyozi & SPA.jpeg', alt_text: 'Le Voyage Resort salon and barber styling stations' },
+  { id: 33, title: 'Salon Beauty & Manicure Stations', category: 'Facilities', image_url: '/images/Salon, Kinyozi & SPA (2).jpeg', alt_text: 'Le Voyage Resort salon styling and beauty station' },
+  { id: 34, title: 'Salon Styling & Grooming Lounge', category: 'Facilities', image_url: '/images/Salon, Kinyozi & SPA (4).jpeg', alt_text: 'Le Voyage Resort salon and grooming lounge' },
+  { id: 35, title: 'Private Outdoor Garden Shades & Gazebos', category: 'Facilities', image_url: '/images/Shades.jpeg', alt_text: 'Le Voyage Resort private garden shades and gazebos' },
+  { id: 36, title: 'Grand Reception Lobby & Hallway', category: 'Resort', image_url: '/images/Reception.jpeg', alt_text: 'Le Voyage Resort grand reception hallway and lounge' },
+  { id: 37, title: '24/7 Front Desk Reception Counter', category: 'Resort', image_url: '/images/Reception (2).jpeg', alt_text: 'Le Voyage Resort 24/7 front desk reception counter' },
+  { id: 38, title: 'Main Entrance Gate & Executive Building', category: 'Resort', image_url: '/images/Resort (2).jpeg', alt_text: 'Le Voyage Resort main entrance gate and executive building' },
+  { id: 39, title: 'Directional Facility Signage in Gardens', category: 'Resort', image_url: '/images/Resort.jpeg', alt_text: 'Le Voyage Resort directional facility signage' },
+  { id: 40, title: 'Kitale Kapenguria Road Highway Signboard', category: 'Resort', image_url: '/images/Resort (3).jpeg', alt_text: 'Le Voyage Resort Kapenguria road directional signboard' }
 ];
 
 export async function getRooms(): Promise<RoomRecord[]> {

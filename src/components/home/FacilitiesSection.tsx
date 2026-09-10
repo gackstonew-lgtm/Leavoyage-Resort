@@ -7,22 +7,22 @@ export default function FacilitiesSection() {
       title: 'Swimming Pool & Sun Deck',
       hours: '07:00 AM – 06:30 PM',
       icon: Waves,
-      image: '/leavoyage-images/swimming%20pool.jpeg',
+      image: '/images/swimming-pool-1.jpeg',
       description: 'Crystal-clear outdoor pool with dedicated kids paddling area, comfortable poolside loungers, and refreshing towel service.',
     },
     {
       title: 'Tropical Manicured Lawns',
       hours: 'Open Daily',
       icon: Trees,
-      image: '/leavoyage-images/gardens.jpeg',
+      image: '/images/Gardens.jpeg',
       description: 'Expansive verdant gardens ideal for tranquil morning walks, photography, outdoor team building, and wedding receptions.',
     },
     {
       title: 'Outdoor Lounge & Fire Pit',
       hours: '05:00 PM – 11:00 PM',
       icon: Sun,
-      image: '/leavoyage-images/gardens%20(3).jpeg',
-      description: 'Cosy evening gathering spots under the star-lit Kitale sky, featuring warm bonfire setups and relaxing music.',
+      image: '/images/Bar & Lounge.jpeg',
+      description: 'Cosy evening gathering spots under the star-lit Kitale sky, featuring warm bonfire setups, refreshing drinks, and relaxing music.',
     },
   ];
 

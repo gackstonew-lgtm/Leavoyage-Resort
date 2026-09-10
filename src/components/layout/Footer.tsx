@@ -13,9 +13,11 @@ export default function Footer() {
           {/* Column 1: Brand & Bio */}
           <div className="space-y-4">
             <Link href="/" className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-resort-500 to-resort-700 flex items-center justify-center text-white font-serif font-bold text-xl shadow-md border border-resort-400/30">
-                LV
-              </div>
+              <img
+                src="/images/logo.jpeg"
+                alt="Le Voyage Resort Official Logo"
+                className="w-10 h-10 rounded-full object-contain bg-white shadow-md border border-resort-400/30 p-0.5"
+              />
               <div>
                 <span className="text-xl font-serif font-bold text-white tracking-wide block leading-none">
                   LE VOYAGE
