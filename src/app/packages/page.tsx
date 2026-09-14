@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Tag, CheckCircle, MessageCircle, Calendar } from 'lucide-react';
+import Link from 'next/link';
+import { Tag, CheckCircle, MessageCircle, Calendar, ArrowRight } from 'lucide-react';
 import { getWhatsAppLink } from '@/config/resortInfo';
 import BookingModal from '@/components/booking/BookingModal';
 
@@ -32,9 +33,9 @@ export default function PackagesPage() {
       price: 'Custom Quote Available',
       image: '/images/gardens-3.jpeg',
       alt: 'LE-VOYAGE garden wedding lawn venue',
-      description: 'Host your dream outdoor wedding on our lush manicured gardens. Includes manicured lawn venue hire, bridal party dressing room, complimentary honeymoon suite, and dedicated event coordinator.',
+      description: 'Host your dream outdoor wedding on our lush manicured gardens. Includes grounds venue hire (official rate: KES 10,000), bridal party dressing room, complimentary honeymoon suite, and dedicated event coordinator.',
       terms: 'Pre-wedding consultation and booking required.',
-      highlights: ['Lawn Venue Hire', 'Bridal Dressing Room', 'Honeymoon Suite Night', 'Dedicated Coordinator'],
+      highlights: ['Lawn Venue Hire (KES 10,000)', 'Bridal Dressing Room', 'Honeymoon Suite Night', 'Dedicated Coordinator'],
     },
   ];
 
@@ -51,6 +52,16 @@ export default function PackagesPage() {
           <p className="text-slate-300 text-sm max-w-2xl mx-auto">
             Discover curated packages designed to offer exceptional value for weekend staycations, corporate seminars, and wedding celebrations.
           </p>
+          <div className="mt-6">
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-2 bg-resort-600 hover:bg-resort-500 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow transition"
+            >
+              <Tag className="w-3.5 h-3.5" />
+              <span>View Full Resort Pricing & Rates</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       </div>
 

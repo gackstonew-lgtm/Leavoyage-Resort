@@ -46,6 +46,7 @@ export default function Footer() {
               {[
                 { name: 'Luxury Rooms & Suites', href: '/accommodation' },
                 { name: 'Conferences & Seminars', href: '/conferences' },
+                { name: 'Official Pricing & Rates', href: '/pricing' },
                 { name: 'Restaurant & Bar Overview', href: '/dining' },
                 { name: 'Online Dining Menu', href: '/dining-menu' },
                 { name: 'Online Bar Menu', href: '/bar-menu' },

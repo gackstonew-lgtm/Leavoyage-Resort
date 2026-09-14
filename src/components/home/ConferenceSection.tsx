@@ -52,6 +52,8 @@ export default function ConferenceSection() {
     {
       name: 'Grand Elgon Ballroom',
       capacity: 'Up to 250 Delegates',
+      hireRate: 'KES 10,000',
+      rateCondition: '150 People & Above',
       specs: 'HD Projectors, Surround PA Sound, High-speed Fiber Wi-Fi',
       image: '/images/conference-1.jpeg',
       description: 'Our flagship conference space equipped with acoustic insulation and customizable banquet layout options.',
@@ -59,6 +61,8 @@ export default function ConferenceSection() {
     {
       name: 'Executive Boardroom',
       capacity: 'Up to 25 Executive Guests',
+      hireRate: 'KES 5,000',
+      rateCondition: '50 People & Below',
       specs: 'Smart Video Conferencing Screen, Ergonomic Seating',
       image: '/images/conference-2.jpeg',
       description: 'Ideal for confidential board meetings, high-level corporate negotiations, and strategic planning retreats.',
@@ -66,9 +70,11 @@ export default function ConferenceSection() {
     {
       name: 'Manicured Event Lawns',
       capacity: 'Up to 500+ Outdoor Guests',
+      hireRate: 'KES 10,000',
+      rateCondition: 'Grounds Venue Hire',
       specs: 'Expansive Grass Lawns, Outdoor Lighting & Tent Setups',
       image: '/images/gardens-4.jpeg',
-      description: 'The preferred outdoor venue in Kitale for romantic garden weddings, corporate launches, and evening galas.',
+      description: 'The preferred outdoor venue in Kitale for romantic garden weddings, corporate launches, graduations, and celebrations.',
     },
   ];
 
@@ -86,12 +92,20 @@ export default function ConferenceSection() {
               State-of-the-Art Venues in Kitale
             </h2>
           </div>
-          <button
-            onClick={() => setIsModalOpen(true)}
-            className="mt-4 md:mt-0 bg-resort-500 hover:bg-resort-400 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow transition"
-          >
-            Request Event Quote
-          </button>
+          <div className="mt-4 md:mt-0 flex items-center gap-3">
+            <Link
+              href="/pricing"
+              className="bg-resort-900 hover:bg-resort-800 text-resort-200 hover:text-white font-semibold text-xs px-4 py-2.5 rounded-lg border border-resort-700 transition"
+            >
+              View Rates
+            </Link>
+            <button
+              onClick={() => setIsModalOpen(true)}
+              className="bg-resort-500 hover:bg-resort-400 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow transition"
+            >
+              Request Event Quote
+            </button>
+          </div>
         </div>
 
         {/* Venues Grid */}
@@ -101,15 +115,21 @@ export default function ConferenceSection() {
               key={idx}
               className="bg-resort-900/80 rounded-2xl overflow-hidden border border-resort-800 hover:border-resort-600 transition duration-300 flex flex-col"
             >
-              <div className="h-48 overflow-hidden">
+              <div className="h-48 overflow-hidden relative">
                 <img
                   src={venue.image}
                   alt={venue.name}
                   className="w-full h-full object-cover hover:scale-105 transition duration-500"
                 />
+                <div className="absolute top-3 right-3 bg-resort-950/90 text-white text-xs font-bold px-3 py-1 rounded-full border border-resort-700 shadow">
+                  {venue.hireRate}
+                </div>
               </div>
               <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
                 <div>
+                  <span className="text-[10px] font-bold text-resort-400 uppercase tracking-wider block mb-1">
+                    {venue.rateCondition}
+                  </span>
                   <h3 className="text-xl font-serif font-bold text-white mb-1">{venue.name}</h3>
                   <p className="text-xs text-resort-300 font-medium mb-3">{venue.capacity}</p>
                   <p className="text-slate-300 text-xs leading-relaxed">{venue.description}</p>
@@ -127,13 +147,21 @@ export default function ConferenceSection() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4 text-center">
           <Link
             href="/conferences"
             className="text-resort-300 hover:text-white text-sm font-medium inline-flex items-center gap-1.5 transition"
           >
             <span>Explore All Conference Packages & Catering Specs</span>
             <ArrowRight className="w-4 h-4" />
+          </Link>
+          <span className="hidden sm:inline text-resort-700">•</span>
+          <Link
+            href="/pricing"
+            className="bg-resort-900 hover:bg-resort-800 text-white text-xs font-semibold px-4 py-2 rounded-lg border border-resort-700 transition inline-flex items-center gap-1.5"
+          >
+            <span>View All Resort Rates & Pricing</span>
+            <ArrowRight className="w-3.5 h-3.5 text-resort-400" />
           </Link>
         </div>
 

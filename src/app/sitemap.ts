@@ -7,6 +7,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/accommodation',
     '/conferences',
+    '/pricing',
+    '/rates',
     '/dining',
     '/facilities',
     '/packages',

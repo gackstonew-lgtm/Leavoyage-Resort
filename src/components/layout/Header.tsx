@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import {
@@ -26,35 +26,36 @@ import { useOrder } from '@/context/OrderContext';
 import BookingModal from '../booking/BookingModal';
 
 export default function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const pathname = usePathname();
   const { totalItemsCount, setIsDrawerOpen } = useOrder();
 
-  const navLinks = [
-    { name: 'Home', href: '/' },
-    { name: 'Accommodation', href: '/accommodation' },
-    { name: 'Conferences & Events', href: '/conferences' },
-    { name: 'Dining', href: '/dining' },
-    { name: 'Facilities', href: '/facilities' },
-    { name: 'Packages', href: '/packages' },
-    { name: 'Gallery', href: '/gallery' },
-    { name: 'About Us', href: '/about' },
-    { name: 'Contact', href: '/contact' },
-  ];
+  // Close menu with Escape key for accessibility
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isMenuOpen]);
 
-  const mobileNavLinks = [
+  // Single source of truth for navigation across all devices
+  const navigationItems = [
     { name: 'Home', href: '/', icon: Home },
     { name: 'Accommodation', href: '/accommodation', icon: Bed },
     { name: 'Conferences & Events', href: '/conferences', icon: Users },
-    { name: 'Dining Overview', href: '/dining', icon: Utensils },
-    { name: 'Dining Menu', href: '/dining-menu', isHighlight: true, icon: Utensils },
-    { name: 'Bar Menu', href: '/bar-menu', isHighlight: true, icon: Wine },
+    { name: 'Dining', href: '/dining', icon: Utensils },
     { name: 'Facilities', href: '/facilities', icon: Sparkles },
+    { name: 'Pricing', href: '/pricing', icon: Tag },
     { name: 'Packages', href: '/packages', icon: Tag },
     { name: 'Gallery', href: '/gallery', icon: Image },
     { name: 'About Us', href: '/about', icon: Info },
     { name: 'Contact', href: '/contact', icon: PhoneCall },
+    { name: 'Dining Menu', href: '/dining-menu', isHighlight: true, icon: Utensils },
+    { name: 'Bar Menu', href: '/bar-menu', isHighlight: true, icon: Wine },
   ];
 
   return (
@@ -80,27 +81,7 @@ export default function Header() {
               </div>
             </Link>
 
-            {/* Desktop Navigation Links */}
-            <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5">
-              {navLinks.map((link) => {
-                const isActive = pathname === link.href;
-                return (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={`px-2 xl:px-2.5 py-1.5 rounded-lg text-[13px] xl:text-sm font-medium whitespace-nowrap transition-colors duration-150 ${
-                      isActive
-                        ? 'text-white bg-resort-700/90 font-semibold shadow-sm border border-resort-500/40'
-                        : 'text-slate-200 hover:text-white hover:bg-resort-800/60'
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* CTA Button & Mobile Menu Toggle */}
+            {/* Header Right Controls: Order, Book Now & Menu Button */}
             <div className="flex items-center space-x-2 sm:space-x-3 shrink-0">
               {totalItemsCount > 0 && (
                 <button
@@ -119,72 +100,92 @@ export default function Header() {
 
               <button
                 onClick={() => setIsBookingModalOpen(true)}
-                className="hidden lg:flex bg-resort-600 hover:bg-resort-500 text-white px-3.5 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 items-center gap-1.5 border border-resort-400/30 active:scale-95 whitespace-nowrap"
+                className="hidden sm:flex bg-resort-600 hover:bg-resort-500 text-white px-3.5 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-semibold shadow-md hover:shadow-lg transition-all duration-200 items-center gap-1.5 border border-resort-400/30 active:scale-95 whitespace-nowrap"
               >
                 <Calendar className="w-4 h-4" />
                 <span>Book Now</span>
               </button>
 
+              {/* Responsive Menu Toggle Button */}
               <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="lg:hidden text-white p-2 rounded-lg bg-resort-600 hover:bg-resort-500 border border-resort-400/40 shadow-sm focus:outline-none transition active:scale-95 flex items-center justify-center"
-                aria-label="Toggle navigation menu"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-white p-2 sm:px-3.5 sm:py-2 rounded-lg bg-resort-600 hover:bg-resort-500 border border-resort-400/40 shadow-sm focus:outline-none focus:ring-2 focus:ring-resort-400 transition active:scale-95 flex items-center justify-center gap-1.5"
+                aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+                aria-expanded={isMenuOpen}
+                aria-controls="main-navigation-menu"
               >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6 text-white" />}
+                {isMenuOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
+                <span className="text-xs font-semibold tracking-wide hidden sm:inline">
+                  {isMenuOpen ? 'Close' : 'Menu'}
+                </span>
               </button>
             </div>
           </div>
         </nav>
 
-        {/* Mobile Navigation Drawer */}
+        {/* Backdrop Overlay for outside click closing */}
+        {isMenuOpen && (
+          <div
+            onClick={() => setIsMenuOpen(false)}
+            className="fixed inset-0 top-[59px] sm:top-[63px] bg-slate-950/70 backdrop-blur-sm z-30 transition-opacity"
+            aria-hidden="true"
+          />
+        )}
+
+        {/* Unified Navigation Menu Drawer */}
         <div
-          className={`lg:hidden fixed inset-x-0 top-[59px] sm:top-[63px] bg-resort-950 border-b border-resort-800 shadow-2xl transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen
-              ? 'max-h-[calc(100vh-60px)] opacity-100 overflow-y-auto py-4'
+          id="main-navigation-menu"
+          role="region"
+          aria-label="Site Navigation"
+          className={`fixed inset-x-0 top-[59px] sm:top-[63px] z-40 bg-resort-950 border-b border-resort-800 shadow-2xl transition-all duration-300 ease-in-out ${
+            isMenuOpen
+              ? 'max-h-[calc(100vh-60px)] opacity-100 overflow-y-auto py-4 sm:py-6'
               : 'max-h-0 opacity-0 overflow-hidden py-0 pointer-events-none'
           }`}
         >
-          <div className="max-w-md mx-auto px-4 sm:px-6 space-y-1">
-            {mobileNavLinks.map((link) => {
-              const isActive = pathname === link.href;
-              const Icon = link.icon;
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`group flex items-center justify-between px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors duration-150 ${
-                    isActive
-                      ? 'bg-resort-600 text-white font-semibold shadow-sm border border-resort-400/30'
-                      : link.isHighlight
-                      ? 'bg-resort-900/80 text-resort-200 border border-resort-700/60 hover:bg-resort-800 hover:text-white'
-                      : 'text-white hover:bg-resort-900/90'
-                  }`}
-                >
-                  <div className="flex items-center gap-3">
-                    {Icon && (
-                      <Icon
-                        className={`w-4 h-4 shrink-0 transition-colors ${
-                          isActive ? 'text-white' : 'text-resort-300 group-hover:text-white'
-                        }`}
-                      />
-                    )}
-                    <span>{link.name}</span>
-                  </div>
-                  <ChevronRight
-                    className={`w-4 h-4 shrink-0 transition-colors ${
-                      isActive ? 'text-white' : 'text-resort-400/60 group-hover:text-white'
+          <div className="max-w-md md:max-w-2xl lg:max-w-3xl mx-auto px-4 sm:px-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-1 sm:gap-2">
+              {navigationItems.map((link) => {
+                const isActive = pathname === link.href;
+                const Icon = link.icon;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMenuOpen(false)}
+                    className={`group flex items-center justify-between px-3.5 py-2.5 rounded-lg text-sm font-medium transition-colors duration-150 ${
+                      isActive
+                        ? 'bg-resort-600 text-white font-semibold shadow-sm border border-resort-400/30'
+                        : link.isHighlight
+                        ? 'bg-resort-900/80 text-resort-200 border border-resort-700/60 hover:bg-resort-800 hover:text-white'
+                        : 'text-white hover:bg-resort-900/90'
                     }`}
-                  />
-                </Link>
-              );
-            })}
+                  >
+                    <div className="flex items-center gap-3">
+                      {Icon && (
+                        <Icon
+                          className={`w-4 h-4 shrink-0 transition-colors ${
+                            isActive ? 'text-white' : 'text-resort-300 group-hover:text-white'
+                          }`}
+                        />
+                      )}
+                      <span>{link.name}</span>
+                    </div>
+                    <ChevronRight
+                      className={`w-4 h-4 shrink-0 transition-colors ${
+                        isActive ? 'text-white' : 'text-resort-400/60 group-hover:text-white'
+                      }`}
+                    />
+                  </Link>
+                );
+              })}
+            </div>
 
-            {/* Mobile Actions Section */}
-            <div className="pt-3 border-t border-resort-800 space-y-2.5">
+            {/* Action Buttons Section */}
+            <div className="pt-4 mt-4 border-t border-resort-800 space-y-2.5">
               <button
                 onClick={() => {
-                  setIsMobileMenuOpen(false);
+                  setIsMenuOpen(false);
                   setIsBookingModalOpen(true);
                 }}
                 className="w-full bg-resort-600 hover:bg-resort-500 text-white py-2.5 rounded-lg font-semibold text-sm flex items-center justify-center gap-2 shadow transition active:scale-95 border border-resort-400/30"

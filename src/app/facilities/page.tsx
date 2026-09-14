@@ -1,4 +1,5 @@
-import { Waves, Trees, Sun, Coffee, ShieldCheck, Clock, MessageCircle } from 'lucide-react';
+import Link from 'next/link';
+import { Waves, Trees, Sun, Coffee, ShieldCheck, Clock, MessageCircle, Tag, ArrowRight } from 'lucide-react';
 import { getWhatsAppLink } from '@/config/resortInfo';
 
 export default function FacilitiesPage() {
@@ -30,10 +31,10 @@ export default function FacilitiesPage() {
     {
       title: 'Manicured Tropical Lawns & Kids Play Area',
       hours: 'Open 24 Hours for Guests',
-      pricing: 'Complimentary Access | Event Garden Hire Upon Request',
+      pricing: 'Complimentary for Resident & Dining Guests | Grounds Venue Hire: KES 10,000',
       image: '/images/Gardens.jpeg',
       alt: 'LE-VOYAGE manicured tropical lawns and kids play area in Kitale',
-      description: 'Surround yourself with mature trees, blooming tropical flora, vibrant lawns, and a dedicated kids bouncing castle and play area. Ideal for morning meditation, garden weddings, outdoor team building, and romantic strolls.',
+      description: 'Surround yourself with mature trees, blooming tropical flora, vibrant lawns, and a dedicated kids bouncing castle and play area. Grounds venue hire (KES 10,000) available for weddings, graduations, corporate events, and social gatherings.',
     },
     {
       title: 'Veranda Cocktail Bar & Fireside Lounge',
@@ -66,6 +67,16 @@ export default function FacilitiesPage() {
           <p className="text-slate-300 text-sm max-w-2xl mx-auto">
             Immerse yourself in serenity with our swimming pool, expansive gardens, outdoor lounge areas, and recreational amenities.
           </p>
+          <div className="mt-6">
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-2 bg-resort-600 hover:bg-resort-500 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow transition"
+            >
+              <Tag className="w-3.5 h-3.5" />
+              <span>View All Resort Rates & Pricing</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       </div>
 

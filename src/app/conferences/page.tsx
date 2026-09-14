@@ -1,7 +1,8 @@
 'use client';
 
 import { useState } from 'react';
-import { Users, Wifi, Tv, Mic, CheckCircle, MessageCircle, Mail, Loader2 } from 'lucide-react';
+import Link from 'next/link';
+import { Users, Wifi, Tv, Mic, CheckCircle, MessageCircle, Mail, Loader2, ArrowRight, ShieldCheck, Tag } from 'lucide-react';
 import { RESORT_INFO, getWhatsAppLink } from '@/config/resortInfo';
 
 export default function ConferencesPage() {
@@ -63,6 +64,33 @@ export default function ConferencesPage() {
     }
   };
 
+  const venueHireRates = [
+    {
+      name: 'Conference Room — 50 People & Below',
+      price: 'KES 5,000',
+      condition: 'Attendance: 50 People & Below',
+      description: 'Professional conference room venue hire based on attendance capacity of 50 attendees and below. Air-conditioned with high-speed fiber Wi-Fi.',
+      specs: ['Climate-controlled hall', 'High-speed fiber Wi-Fi', 'Standard layout setup'],
+      whatsappMsg: 'Hello LE-VOYAGE Resort, I would like to book a Conference Room for 50 People & Below (KES 5,000 venue hire).',
+    },
+    {
+      name: 'Conference Room — 150 People & Above',
+      price: 'KES 10,000',
+      condition: 'Attendance: 150 People & Above',
+      description: 'Spacious conference hall venue hire for larger assemblies, regional seminars, conventions, and symposiums of 150 people and above.',
+      specs: ['Grand conference hall space', 'Acoustic insulation', 'Customizable seating layout'],
+      whatsappMsg: 'Hello LE-VOYAGE Resort, I would like to book a Conference Room for 150 People & Above (KES 10,000 venue hire).',
+    },
+    {
+      name: 'Grounds Venue Hire',
+      price: 'KES 10,000',
+      condition: 'Weddings & Outdoor Events',
+      description: 'Grounds Venue Hire — KES 10,000. Suitable for weddings, graduations, receptions, celebrations, corporate events and other social gatherings.',
+      specs: ['Manicured event lawn allocation', 'Guest parking & washrooms', 'Scenic outdoor backdrops'],
+      whatsappMsg: 'Hello LE-VOYAGE Resort, I would like to enquire about Grounds Venue Hire (KES 10,000) for our upcoming event.',
+    },
+  ];
+
   const conferencePackages = [
     {
       name: 'Full-Day Delegate Package',
@@ -117,15 +145,86 @@ export default function ConferencesPage() {
           <p className="text-slate-300 text-sm max-w-2xl mx-auto">
             Host successful business seminars, board meetings, strategy retreats, and garden weddings in Kitale’s premier conference destination.
           </p>
+          <div className="mt-6">
+            <Link
+              href="/pricing"
+              className="inline-flex items-center gap-2 bg-resort-600 hover:bg-resort-500 text-white text-xs font-semibold px-4 py-2 rounded-lg shadow transition"
+            >
+              <Tag className="w-3.5 h-3.5" />
+              <span>View Centralized Resort Pricing & Rates</span>
+              <ArrowRight className="w-3.5 h-3.5" />
+            </Link>
+          </div>
         </div>
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
         
+        {/* Official Venue Hire Rates */}
+        <div>
+          <div className="text-center max-w-2xl mx-auto mb-8">
+            <span className="text-xs font-bold uppercase tracking-wider text-resort-600 block mb-1">
+              Official Venue Hire
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-serif font-bold text-slate-900">
+              Halls & Grounds Venue Rates
+            </h2>
+            <p className="text-xs text-slate-600 mt-1">
+              Official venue hire rates based on capacity and event requirements. Distinct from delegate catering packages.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {venueHireRates.map((venue, idx) => (
+              <div
+                key={idx}
+                className="bg-white rounded-2xl p-6 border border-slate-200 shadow-card hover:shadow-xl transition-all duration-300 flex flex-col justify-between space-y-4"
+              >
+                <div>
+                  <span className="text-[10px] font-bold uppercase tracking-wider text-resort-600 block mb-1">
+                    {venue.condition}
+                  </span>
+                  <h3 className="text-xl font-serif font-bold text-slate-900 mb-2">{venue.name}</h3>
+                  <div className="mb-3">
+                    <span className="text-2xl font-bold text-resort-900">{venue.price}</span>
+                    <span className="text-xs text-slate-500 ml-1">/ venue hire</span>
+                  </div>
+                  <p className="text-xs text-slate-600 leading-relaxed mb-4">{venue.description}</p>
+                  
+                  <div className="space-y-2 pt-2 border-t border-slate-100">
+                    {venue.specs.map((item, i) => (
+                      <div key={i} className="flex items-center gap-2 text-xs text-slate-600">
+                        <CheckCircle className="w-3.5 h-3.5 text-resort-600 shrink-0" />
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-4 border-t border-slate-100">
+                  <a
+                    href={getWhatsAppLink(venue.whatsappMsg)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-resort-600 hover:bg-resort-700 text-white font-semibold py-2.5 px-3 rounded-lg text-xs shadow transition flex items-center justify-center gap-1.5"
+                  >
+                    <MessageCircle className="w-3.5 h-3.5" />
+                    <span>Enquire Availability</span>
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-4 p-3 bg-amber-50 rounded-xl border border-amber-200/80 text-[11px] text-amber-900 text-center">
+            *Grounds venue hire (KES 10,000) and conference venue rates secure space allocation. Catering, PA gear, and decor are quoted separately or bundled in packages below.
+          </div>
+        </div>
+
         {/* Packages Grid */}
         <div>
           <h2 className="text-2xl font-serif font-bold text-slate-900 mb-6 text-center">
-            Conference Packages & Inclusions
+            All-Inclusive Delegate Packages & Inclusions
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {conferencePackages.map((pkg, idx) => (
