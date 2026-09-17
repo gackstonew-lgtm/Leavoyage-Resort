@@ -8,7 +8,7 @@ export default function BookingAvailabilityBar() {
   const [checkIn, setCheckIn] = useState('');
   const [checkOut, setCheckOut] = useState('');
   const [guests, setGuests] = useState('2 Guests');
-  const [roomType, setRoomType] = useState('Deluxe Executive Suite');
+  const [roomType, setRoomType] = useState('Single Cottage');
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const handleSearch = (e: React.FormEvent) => {
@@ -78,10 +78,14 @@ export default function BookingAvailabilityBar() {
               onChange={(e) => setRoomType(e.target.value)}
               className="w-full bg-slate-50 border border-slate-200 rounded-lg px-3 py-2.5 text-xs sm:text-sm font-medium text-slate-800 focus:ring-2 focus:ring-resort-500 focus:outline-none"
             >
-              <option value="Deluxe Executive Suite">Deluxe Executive Suite</option>
-              <option value="Superior Double Room">Superior Double Room</option>
-              <option value="Family Luxury Cottage">Family Luxury Cottage</option>
-              <option value="Standard Twin Room">Standard Twin Room</option>
+                            <option value="Single Cottage">Single Cottage</option>
+              <option value="Standard Cottage">Standard Cottage</option>
+              <option value="Twin-Bed Cottage">Twin-Bed Cottage</option>
+              <option value="Family Cottage">Family Cottage</option>
+              <option value="Single Étage">Single Étage</option>
+              <option value="Standard Étage">Standard Étage</option>
+              <option value="Deluxe Étage">Deluxe Étage</option>
+              <option value="BnB Étage">BnB Étage</option>
             </select>
           </div>
 

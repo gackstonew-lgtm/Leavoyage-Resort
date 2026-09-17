@@ -27,7 +27,7 @@ import BookingModal from '@/components/booking/BookingModal';
 export default function PricingPage() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [selectedRoomName, setSelectedRoomName] = useState('Deluxe Executive Suite');
+  const [selectedRoomName, setSelectedRoomName] = useState('Single Cottage');
 
   const filteredItems = activeCategory === 'all'
     ? RESORT_PRICING_DATA
@@ -454,46 +454,90 @@ export default function PricingPage() {
                     </Link>
                   </td>
                 </tr>
-                <tr className="hover:bg-slate-50/70">
-                  <td className="py-3 px-4 font-semibold text-slate-900">Deluxe Executive Suite</td>
+                                <tr className="hover:bg-slate-50/70">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Single Cottage</td>
                   <td className="py-3 px-4">Accommodation</td>
-                  <td className="py-3 px-4">2 Guests, King Bed, Balcony, Breakfast</td>
-                  <td className="py-3 px-4 font-bold text-resort-700">KES 12,500 / night</td>
+                  <td className="py-3 px-4">1 Guest, Single Bed</td>
+                  <td className="py-3 px-4 font-bold text-resort-700">KES 3,500 / night</td>
                   <td className="py-3 px-4 text-right">
-                    <button onClick={() => handleBookRoom('Deluxe Executive Suite')} className="text-resort-600 hover:text-resort-800 font-semibold">
+                    <button onClick={() => handleBookRoom('Single Cottage')} className="text-resort-600 hover:text-resort-800 font-semibold">
                       Reserve
                     </button>
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50/70">
-                  <td className="py-3 px-4 font-semibold text-slate-900">Superior Double Room</td>
+                  <td className="py-3 px-4 font-semibold text-slate-900">Standard Cottage</td>
                   <td className="py-3 px-4">Accommodation</td>
-                  <td className="py-3 px-4">2 Guests, Queen Bed, Breakfast</td>
-                  <td className="py-3 px-4 font-bold text-resort-700">KES 9,500 / night</td>
+                  <td className="py-3 px-4">2 Guests, Double Bed</td>
+                  <td className="py-3 px-4 font-bold text-resort-700">KES 4,500 / night</td>
                   <td className="py-3 px-4 text-right">
-                    <button onClick={() => handleBookRoom('Superior Double Room')} className="text-resort-600 hover:text-resort-800 font-semibold">
+                    <button onClick={() => handleBookRoom('Standard Cottage')} className="text-resort-600 hover:text-resort-800 font-semibold">
                       Reserve
                     </button>
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50/70">
-                  <td className="py-3 px-4 font-semibold text-slate-900">Family Luxury Cottage</td>
+                  <td className="py-3 px-4 font-semibold text-slate-900">Twin-Bed Cottage</td>
                   <td className="py-3 px-4">Accommodation</td>
-                  <td className="py-3 px-4">4 Guests, 2 Bedrooms, Lounge, Pool Access</td>
-                  <td className="py-3 px-4 font-bold text-resort-700">KES 18,000 / night</td>
+                  <td className="py-3 px-4">2 Guests, Twin Beds</td>
+                  <td className="py-3 px-4 font-bold text-resort-700">KES 6,000 / night</td>
                   <td className="py-3 px-4 text-right">
-                    <button onClick={() => handleBookRoom('Family Luxury Cottage')} className="text-resort-600 hover:text-resort-800 font-semibold">
+                    <button onClick={() => handleBookRoom('Twin-Bed Cottage')} className="text-resort-600 hover:text-resort-800 font-semibold">
                       Reserve
                     </button>
                   </td>
                 </tr>
                 <tr className="hover:bg-slate-50/70">
-                  <td className="py-3 px-4 font-semibold text-slate-900">Standard Twin Room</td>
+                  <td className="py-3 px-4 font-semibold text-slate-900">Family Cottage</td>
                   <td className="py-3 px-4">Accommodation</td>
-                  <td className="py-3 px-4">2 Guests, Twin Beds, Wi-Fi, Work Desk</td>
-                  <td className="py-3 px-4 font-bold text-resort-700">KES 7,500 / night</td>
+                  <td className="py-3 px-4">4 Guests, Double + 2 Twins</td>
+                  <td className="py-3 px-4 font-bold text-resort-700">KES 9,000 / night</td>
                   <td className="py-3 px-4 text-right">
-                    <button onClick={() => handleBookRoom('Standard Twin Room')} className="text-resort-600 hover:text-resort-800 font-semibold">
+                    <button onClick={() => handleBookRoom('Family Cottage')} className="text-resort-600 hover:text-resort-800 font-semibold">
+                      Reserve
+                    </button>
+                  </td>
+                </tr>
+                <tr className="hover:bg-slate-50/70">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Single Étage</td>
+                  <td className="py-3 px-4">Accommodation</td>
+                  <td className="py-3 px-4">1 Guest, Single Bed</td>
+                  <td className="py-3 px-4 font-bold text-resort-700">KES 2,500 / night</td>
+                  <td className="py-3 px-4 text-right">
+                    <button onClick={() => handleBookRoom('Single Étage')} className="text-resort-600 hover:text-resort-800 font-semibold">
+                      Reserve
+                    </button>
+                  </td>
+                </tr>
+                <tr className="hover:bg-slate-50/70">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Standard Étage</td>
+                  <td className="py-3 px-4">Accommodation</td>
+                  <td className="py-3 px-4">2 Guests, Double Bed</td>
+                  <td className="py-3 px-4 font-bold text-resort-700">KES 3,500 / night</td>
+                  <td className="py-3 px-4 text-right">
+                    <button onClick={() => handleBookRoom('Standard Étage')} className="text-resort-600 hover:text-resort-800 font-semibold">
+                      Reserve
+                    </button>
+                  </td>
+                </tr>
+                <tr className="hover:bg-slate-50/70">
+                  <td className="py-3 px-4 font-semibold text-slate-900">Deluxe Étage</td>
+                  <td className="py-3 px-4">Accommodation</td>
+                  <td className="py-3 px-4">2 Guests, Queen Bed</td>
+                  <td className="py-3 px-4 font-bold text-resort-700">KES 5,000 / night</td>
+                  <td className="py-3 px-4 text-right">
+                    <button onClick={() => handleBookRoom('Deluxe Étage')} className="text-resort-600 hover:text-resort-800 font-semibold">
+                      Reserve
+                    </button>
+                  </td>
+                </tr>
+                <tr className="hover:bg-slate-50/70">
+                  <td className="py-3 px-4 font-semibold text-slate-900">BnB Étage</td>
+                  <td className="py-3 px-4">Accommodation</td>
+                  <td className="py-3 px-4">2 Guests, King Bed</td>
+                  <td className="py-3 px-4 font-bold text-resort-700">KES 10,000 / night</td>
+                  <td className="py-3 px-4 text-right">
+                    <button onClick={() => handleBookRoom('BnB Étage')} className="text-resort-600 hover:text-resort-800 font-semibold">
                       Reserve
                     </button>
                   </td>

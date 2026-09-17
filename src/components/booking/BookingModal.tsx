@@ -21,7 +21,7 @@ export default function BookingModal({ isOpen, onClose, preselectedRoom }: Booki
     adults: '2',
     children: '0',
     rooms_count: '1',
-    room_type: preselectedRoom || 'Deluxe Executive Suite',
+    room_type: preselectedRoom || 'Single Cottage',
     special_requests: '',
   });
 
@@ -209,10 +209,14 @@ export default function BookingModal({ isOpen, onClose, preselectedRoom }: Booki
                   onChange={(e) => setFormData({ ...formData, room_type: e.target.value })}
                   className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-800 focus:ring-2 focus:ring-resort-500 focus:outline-none"
                 >
-                  <option value="Deluxe Executive Suite">Deluxe Executive Suite (KES 12,500/night)</option>
-                  <option value="Superior Double Room">Superior Double Room (KES 9,500/night)</option>
-                  <option value="Family Luxury Cottage">Family Luxury Cottage (KES 18,000/night)</option>
-                  <option value="Standard Twin Room">Standard Twin Room (KES 7,500/night)</option>
+                                    <option value="Single Cottage">Single Cottage (KES 3,500/night)</option>
+                  <option value="Standard Cottage">Standard Cottage (KES 4,500/night)</option>
+                  <option value="Twin-Bed Cottage">Twin-Bed Cottage (KES 6,000/night)</option>
+                  <option value="Family Cottage">Family Cottage (KES 9,000/night)</option>
+                  <option value="Single Étage">Single Étage (KES 2,500/night)</option>
+                  <option value="Standard Étage">Standard Étage (KES 3,500/night)</option>
+                  <option value="Deluxe Étage">Deluxe Étage (KES 5,000/night)</option>
+                  <option value="BnB Étage">BnB Étage (KES 10,000/night)</option>
                 </select>
               </div>
 
