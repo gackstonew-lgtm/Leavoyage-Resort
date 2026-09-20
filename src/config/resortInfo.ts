@@ -9,9 +9,9 @@ export const RESORT_INFO = {
   contact: {
     phone: "0141592359",
     phoneRaw: "0141592359",
-    whatsapp: "0141592359",
-    whatsappRaw: "254141592359",
-    whatsappQrUrl: "https://wa.me/254141592359",
+    whatsapp: "+254 705 815665",
+    whatsappRaw: "254705815665",
+    whatsappQrUrl: "https://wa.me/254705815665",
     email: "leavoyageresort2018@gmail.com",
     bookingEmail: "leavoyageresort2018@gmail.com",
     address: "Located Kitale-Kapenguria Road, next to Moi University, Bakhita Campus",
