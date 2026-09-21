@@ -6,6 +6,7 @@ import { Users, Bed, Maximize, Check, ArrowRight, MessageCircle, X } from 'lucid
 import { getWhatsAppLink } from '@/config/resortInfo';
 import { staticRooms, RoomRecord } from '@/lib/db';
 import BookingModal from '../booking/BookingModal';
+import ImageGallerySlider from '../common/ImageGallerySlider';
 
 export default function FeaturedRooms() {
   const [rooms, setRooms] = useState<RoomRecord[]>(staticRooms);
@@ -73,17 +74,17 @@ export default function FeaturedRooms() {
                 key={room.id}
                 className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-card hover:shadow-2xl transition-all duration-300 flex flex-col group"
               >
-                {/* Image Container */}
-                <div className="relative h-60 overflow-hidden bg-slate-900">
-                  <img
-                    src={room.main_image}
-                    alt={room.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition duration-500"
-                  />
-                  <div className="absolute top-4 right-4 bg-resort-950/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-semibold shadow border border-resort-700">
-                    KES {room.price_per_night.toLocaleString()} / night
-                  </div>
-                </div>
+                {/* Image Gallery Slideshow Container */}
+                <ImageGallerySlider
+                  images={room.gallery_images && room.gallery_images.length > 0 ? room.gallery_images : [room.main_image]}
+                  alt={room.name}
+                  aspectRatioClassName="h-60"
+                  badge={
+                    <div className="bg-resort-950/90 backdrop-blur-md text-white px-3 py-1 rounded-full text-xs font-semibold shadow border border-resort-700">
+                      KES {room.price_per_night.toLocaleString()} / night
+                    </div>
+                  }
+                />
 
                 {/* Card Content */}
                 <div className="p-6 flex-1 flex flex-col justify-between space-y-4">
@@ -162,20 +163,23 @@ export default function FeaturedRooms() {
         >
           <div className="bg-white rounded-2xl shadow-2xl w-full max-w-3xl overflow-hidden my-8">
             <div className="relative h-72 bg-slate-900">
-              <img
-                src={selectedRoom.main_image}
+              <ImageGallerySlider
+                images={selectedRoom.gallery_images && selectedRoom.gallery_images.length > 0 ? selectedRoom.gallery_images : [selectedRoom.main_image]}
                 alt={selectedRoom.name}
-                className="w-full h-full object-cover"
+                aspectRatioClassName="h-72"
+                badge={
+                  <div className="bg-resort-950/90 text-white px-4 py-1.5 rounded-full text-sm font-bold">
+                    KES {selectedRoom.price_per_night.toLocaleString()} / night
+                  </div>
+                }
               />
               <button
                 onClick={() => setSelectedRoom(null)}
-                className="absolute top-4 right-4 bg-resort-950/80 text-white p-2 rounded-full hover:bg-resort-950"
+                aria-label="Close modal"
+                className="absolute top-4 right-4 z-30 bg-resort-950/80 text-white p-2 rounded-full hover:bg-resort-950 shadow"
               >
                 <X className="w-5 h-5" />
               </button>
-              <div className="absolute bottom-4 left-4 bg-resort-950/90 text-white px-4 py-1.5 rounded-full text-sm font-bold">
-                KES {selectedRoom.price_per_night.toLocaleString()} / night
-              </div>
             </div>
 
             <div className="p-6 space-y-4 max-h-[60vh] overflow-y-auto">

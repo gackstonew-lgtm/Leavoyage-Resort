@@ -95,9 +95,14 @@ export default function ContactPage() {
                   <Phone className="w-5 h-5 text-resort-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="font-semibold text-white block">Phone Lines</span>
-                    <a href={`tel:${RESORT_INFO.contact.phoneRaw}`} className="text-slate-300 hover:text-white transition">
-                      {RESORT_INFO.contact.phone}
-                    </a>
+                    <div className="flex flex-col space-y-1 text-slate-300 mt-1">
+                      <a href={`tel:${RESORT_INFO.contact.phoneRaw}`} className="hover:text-white transition block">
+                        {RESORT_INFO.contact.phone}
+                      </a>
+                      <a href={`tel:${RESORT_INFO.contact.additionalPhoneRaw}`} className="hover:text-white transition block">
+                        {RESORT_INFO.contact.additionalPhone}
+                      </a>
+                    </div>
                   </div>
                 </div>
 

@@ -5,6 +5,7 @@ import { Users, Bed, Maximize, Check, Calendar, MessageCircle, X } from 'lucide-
 import { getWhatsAppLink } from '@/config/resortInfo';
 import { staticRooms, RoomRecord } from '@/lib/db';
 import BookingModal from '@/components/booking/BookingModal';
+import ImageGallerySlider from '@/components/common/ImageGallerySlider';
 
 export default function AccommodationPage() {
   const [rooms, setRooms] = useState<RoomRecord[]>(staticRooms);
@@ -66,16 +67,18 @@ export default function AccommodationPage() {
                 key={room.id}
                 className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-card hover:shadow-xl transition-all duration-300 grid grid-cols-1 lg:grid-cols-12 gap-0"
               >
-                {/* Image */}
-                <div className="lg:col-span-5 relative h-64 lg:h-auto min-h-[280px]">
-                  <img
-                    src={room.main_image}
+                {/* Image Gallery Slideshow */}
+                <div className="lg:col-span-5 h-64 lg:h-auto min-h-[280px]">
+                  <ImageGallerySlider
+                    images={room.gallery_images && room.gallery_images.length > 0 ? room.gallery_images : [room.main_image]}
                     alt={room.name}
-                    className="w-full h-full object-cover"
+                    aspectRatioClassName="h-full min-h-[280px]"
+                    badge={
+                      <div className="bg-resort-950/90 text-white px-3 py-1 rounded-full text-xs font-bold border border-resort-700 shadow">
+                        KES {room.price_per_night.toLocaleString()} / night
+                      </div>
+                    }
                   />
-                  <div className="absolute top-4 left-4 bg-resort-950/90 text-white px-3 py-1 rounded-full text-xs font-bold border border-resort-700">
-                    KES {room.price_per_night.toLocaleString()} / night
-                  </div>
                 </div>
 
                 {/* Content */}

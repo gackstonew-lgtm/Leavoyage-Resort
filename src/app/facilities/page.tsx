@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Waves, Trees, Sun, Coffee, ShieldCheck, Clock, MessageCircle, Tag, ArrowRight } from 'lucide-react';
 import { getWhatsAppLink } from '@/config/resortInfo';
+import ImageGallerySlider from '@/components/common/ImageGallerySlider';
 
 export default function FacilitiesPage() {
   const facilitiesList = [
@@ -8,7 +9,7 @@ export default function FacilitiesPage() {
       title: 'Outdoor Swimming Pool & Sun Lounge',
       hours: '07:00 AM – 06:30 PM',
       pricing: 'Free for Resident Guests | Day Pass KES 800 (Adults) / KES 500 (Children)',
-      image: '/images/swimming-pool-1.jpeg',
+      images: ['/images/swimming-pool-1.jpeg', '/images/swimming-pool-2.jpeg', '/images/swimming-pool-3.jpeg', '/images/swimming-pool-4.jpeg'],
       alt: 'LE-VOYAGE outdoor swimming pool and sun deck lounge',
       description: 'Relax in our pristine outdoor swimming pool featuring crystal-clear water, sun deck loungers, fresh towel service, and poolside beverage service from the main bar.',
     },
@@ -16,7 +17,7 @@ export default function FacilitiesPage() {
       title: 'Westim Salon, Kinyozi & Spa',
       hours: '08:00 AM – 08:00 PM',
       pricing: 'Executive Haircuts, Styling, Manicure, Pedicure & Massage Services',
-      image: '/images/Salon, Kinyozi & SPA (4).jpeg',
+      images: ['/images/Salon, Kinyozi & SPA (4).jpeg', '/images/Salon, Kinyozi & SPA (3).jpeg', '/images/Salon, Kinyozi & SPA.jpeg', '/images/Salon, Kinyozi & SPA (2).jpeg'],
       alt: 'LE-VOYAGE Westim Salon, Kinyozi and Spa facilities',
       description: 'Rejuvenate your senses at our state-of-the-art beauty salon, barber shop (kinyozi), and spa. Professional hair styling, grooming, facial treatments, and massage therapies provided by certified practitioners.',
     },
@@ -24,7 +25,7 @@ export default function FacilitiesPage() {
       title: 'Private Garden Shades & Gazebos',
       hours: '08:00 AM – 10:00 PM',
       pricing: 'Complimentary for Dining & Resident Guests | Private Booking Available',
-      image: '/images/Shades.jpeg',
+      images: ['/images/Shades.jpeg'],
       alt: 'LE-VOYAGE private garden shades and gazebos in Kitale',
       description: 'Enjoy secluded outdoor dining and relaxation in our named garden shades (Cherengany, Makutano, Homa Bay). Immersed in lush green surroundings, perfect for private meetings, intimate family meals, and small group get-togethers.',
     },
@@ -32,7 +33,7 @@ export default function FacilitiesPage() {
       title: 'Manicured Tropical Lawns & Kids Play Area',
       hours: 'Open 24 Hours for Guests',
       pricing: 'Complimentary for Resident & Dining Guests | Grounds Venue Hire: KES 10,000',
-      image: '/images/Gardens.jpeg',
+      images: ['/images/Gardens.jpeg', '/images/Gardens (2).jpeg', '/images/Gardens (3).jpeg', '/images/gardens-1.jpeg', '/images/gardens-2.jpeg'],
       alt: 'LE-VOYAGE manicured tropical lawns and kids play area in Kitale',
       description: 'Surround yourself with mature trees, blooming tropical flora, vibrant lawns, and a dedicated kids bouncing castle and play area. Grounds venue hire (KES 10,000) available for weddings, graduations, corporate events, and social gatherings.',
     },
@@ -40,15 +41,23 @@ export default function FacilitiesPage() {
       title: 'Veranda Cocktail Bar & Fireside Lounge',
       hours: '12:00 PM – 11:00 PM',
       pricing: 'Signature Cocktails, Fine Wines, Chilled Beverages & Grilled Bites',
-      image: '/images/Bar & Lounge.jpeg',
+      images: ['/images/Bar & Lounge.jpeg', '/images/Bar & Lounge (2).jpeg'],
       alt: 'LE-VOYAGE veranda cocktail bar and fireside lounge',
       description: 'Unwind at our open-air veranda bar and cozy indoor lounge. Enjoy handcrafted signature cocktails, cold beers, premium spirits, and evening fireside ambiance under the Kitale starlit sky.',
+    },
+    {
+      title: 'Scenic Rooftop Terrace & Lounge',
+      hours: '10:00 AM – 11:00 PM',
+      pricing: 'Complimentary for Resident & Dining Guests | Private Event Booking Available',
+      images: ['/images/Rooftop.jpeg', '/images/Rooftop (2).jpeg', '/images/Rooftop (3).jpeg'],
+      alt: 'LE-VOYAGE scenic rooftop terrace and lounge in Kitale',
+      description: 'Take in panoramic views of the lush Kitale landscape and serene surrounding highlands from our elevated rooftop lounge. An idyllic setting for sunset relaxation, evening cocktails, private gatherings, and open-air hospitality.',
     },
     {
       title: '24/7 Front Desk & Reception Lounge',
       hours: 'Open 24/7 All Week',
       pricing: 'Concierge Assistance, Check-In/Check-Out & Travel Inquiries',
-      image: '/images/Reception.jpeg',
+      images: ['/images/Reception.jpeg', '/images/Reception (2).jpeg'],
       alt: 'LE-VOYAGE grand reception and welcome lounge',
       description: 'Our hospitable reception team is available around the clock to ensure a seamless arrival, comfortable stay, luggage handling, and personalized guest assistance.',
     },
@@ -83,8 +92,12 @@ export default function FacilitiesPage() {
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         {facilitiesList.map((fac, idx) => (
           <div key={idx} className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-card grid grid-cols-1 md:grid-cols-12">
-            <div className="md:col-span-5 h-64 md:h-auto">
-              <img src={fac.image} alt={fac.alt || fac.title} className="w-full h-full object-cover" />
+            <div className="md:col-span-5 h-64 md:h-auto min-h-[260px]">
+              <ImageGallerySlider
+                images={fac.images}
+                alt={fac.alt || fac.title}
+                aspectRatioClassName="h-full min-h-[260px]"
+              />
             </div>
             <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-4">
               <div>

@@ -9,6 +9,9 @@ export const RESORT_INFO = {
   contact: {
     phone: "0141592359",
     phoneRaw: "0141592359",
+    additionalPhone: "0723770988",
+    additionalPhoneRaw: "0723770988",
+    additionalPhoneLabel: "0723770988",
     whatsapp: "+254 705 815665",
     whatsappRaw: "254705815665",
     whatsappQrUrl: "https://wa.me/254705815665",
@@ -44,3 +47,11 @@ export const getWhatsAppLink = (message?: string) => {
 export const getEmailMailtoLink = (subject: string, body: string) => {
   return `mailto:${RESORT_INFO.contact.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 };
+
+export const getSmsLink = (phone: string = RESORT_INFO.contact.additionalPhoneRaw, body?: string) => {
+  if (body) {
+    return `sms:${phone}?body=${encodeURIComponent(body)}`;
+  }
+  return `sms:${phone}`;
+};
+

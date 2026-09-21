@@ -664,6 +664,13 @@ export default function PricingPage() {
               <Phone className="w-4 h-4 text-resort-400" />
               <span>Call: {RESORT_INFO.contact.phone}</span>
             </a>
+            <a
+              href={`tel:${RESORT_INFO.contact.additionalPhoneRaw}`}
+              className="w-full sm:w-auto bg-resort-900 hover:bg-resort-800 text-slate-200 font-semibold px-6 py-3 rounded-xl text-xs sm:text-sm border border-resort-700 transition flex items-center justify-center gap-2"
+            >
+              <Phone className="w-4 h-4 text-resort-400" />
+              <span>Call: {RESORT_INFO.contact.additionalPhone}</span>
+            </a>
           </div>
         </div>
       </div>

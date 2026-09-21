@@ -93,11 +93,16 @@ export default function Footer() {
                   <span className="text-xs text-resort-300 font-medium block mt-1">{RESORT_INFO.contact.postalAddress}</span>
                 </div>
               </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-resort-400 shrink-0" />
-                <a href={`tel:${RESORT_INFO.contact.phoneRaw}`} className="hover:text-white transition">
-                  {RESORT_INFO.contact.phone}
-                </a>
+              <div className="flex items-start gap-3">
+                <Phone className="w-4 h-4 text-resort-400 shrink-0 mt-0.5" />
+                <div className="flex flex-col space-y-1">
+                  <a href={`tel:${RESORT_INFO.contact.phoneRaw}`} className="hover:text-white transition block">
+                    {RESORT_INFO.contact.phone}
+                  </a>
+                  <a href={`tel:${RESORT_INFO.contact.additionalPhoneRaw}`} className="hover:text-white transition block">
+                    {RESORT_INFO.contact.additionalPhone}
+                  </a>
+                </div>
               </div>
               <div className="flex items-center gap-3">
                 <Mail className="w-4 h-4 text-resort-400 shrink-0" />

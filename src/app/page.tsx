@@ -62,9 +62,16 @@ export default function HomePage() {
                       <span className="text-resort-300 text-xs block mt-0.5">{RESORT_INFO.contact.postalAddress}</span>
                     </div>
                   </div>
-                  <div className="flex items-center gap-3">
-                    <Phone className="w-4 h-4 text-resort-400 shrink-0" />
-                    <span>{RESORT_INFO.contact.phone}</span>
+                  <div className="flex items-start gap-3">
+                    <Phone className="w-4 h-4 text-resort-400 shrink-0 mt-0.5" />
+                    <div className="space-y-1">
+                      <a href={`tel:${RESORT_INFO.contact.phoneRaw}`} className="hover:text-white transition block">
+                        {RESORT_INFO.contact.phone}
+                      </a>
+                      <a href={`tel:${RESORT_INFO.contact.additionalPhoneRaw}`} className="text-slate-300 hover:text-white transition block">
+                        {RESORT_INFO.contact.additionalPhone}
+                      </a>
+                    </div>
                   </div>
                   <div className="flex items-center gap-3">
                     <Mail className="w-4 h-4 text-resort-400 shrink-0" />

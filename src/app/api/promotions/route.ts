@@ -1,6 +1,9 @@
 import { NextResponse } from 'next/server';
 import { getPromotions } from '@/lib/db';
 
+export const dynamic = 'force-dynamic';
+
+
 export async function GET() {
   try {
     const promotions = await getPromotions();
